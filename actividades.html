@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Actividades en Bosques de Monterreal: Ski, Golf, Tirolesa, Cabalgatas, Cuatrimotos, Rappel y más. Aventura para toda la familia en la Sierra de Arteaga.">
+
+    <title>Actividades | Bosques de Monterreal</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌲</text></svg>">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">MONTERREAL</a>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="cabanas.html">Cabañas</a></li>
+                <li><a href="actividades.html" class="active">Actividades</a></li>
+                <li><a href="index.html#instalaciones">Instalaciones</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+            <a href="https://direct-book.com/monterreal" target="_blank" rel="noopener" class="btn btn-primary navbar-cta">RESERVAR</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="actividades-hero">
+        <div class="container">
+            <h1 class="section-title text-white" style="margin-bottom: 1rem;">Actividades</h1>
+            <p style="font-size: 1.25rem; opacity: 0.9;">Aventura y diversión para toda la familia</p>
+        </div>
+    </header>
+
+    <!-- Ski Section -->
+    <section class="actividad-section" id="ski">
+        <div class="container">
+            <div class="actividad-wrapper">
+                <div class="actividad-image">
+                    <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&q=80" alt="Pista de Ski Monterreal" loading="lazy">
+                </div>
+                <div class="actividad-content">
+                    <span class="badge">365 días al año</span>
+                    <h2>Ski & Snowboard</h2>
+                    <p>
+                        Disfruta de la única pista de ski en el noreste de México, abierta todo el año
+                        gracias a nuestro sistema de nieve artificial. Perfecto tanto para principiantes
+                        como para esquiadores experimentados.
+                    </p>
+                    <ul class="actividad-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Clases grupales e individuales disponibles
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Renta de equipo completo
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Pista de aprendizaje disponible
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Snowboard también disponible
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Precios Ski -->
+    <section class="precios-ski" style="padding: 3rem 0; background-color: var(--color-secondary);">
+        <div class="container">
+            <h3 style="font-family: var(--font-display); text-align: center; margin-bottom: 2rem;">Tarifas de Ski (por persona, por hora)</h3>
+            <div class="precios-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                <div class="precio-card" style="background: white; padding: 1.5rem; border-radius: 12px; text-align: center;">
+                    <h4 style="color: var(--color-primary); margin-bottom: 0.5rem;">Solo Acceso a Pista</h4>
+                    <p style="font-size: 1.5rem; font-weight: 600; color: var(--color-accent);">$495 <span style="font-size: 0.875rem; font-weight: 400;">MXN Adulto</span></p>
+                    <p style="font-size: 1.25rem; color: var(--color-gray-600);">$320 <span style="font-size: 0.875rem;">MXN Niño</span></p>
+                    <p style="font-size: 0.75rem; color: var(--color-gray-600); margin-top: 0.5rem;">Sin equipo ni instructor</p>
+                </div>
+                <div class="precio-card" style="background: white; padding: 1.5rem; border-radius: 12px; text-align: center;">
+                    <h4 style="color: var(--color-primary); margin-bottom: 0.5rem;">Con Equipo</h4>
+                    <p style="font-size: 1.5rem; font-weight: 600; color: var(--color-accent);">$695 <span style="font-size: 0.875rem; font-weight: 400;">MXN</span></p>
+                    <p style="font-size: 0.875rem; color: var(--color-gray-600); margin-top: 0.5rem;">Incluye renta de equipo completo</p>
+                </div>
+                <div class="precio-card" style="background: white; padding: 1.5rem; border-radius: 12px; text-align: center; border: 2px solid var(--color-accent);">
+                    <span style="background: var(--color-accent); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem;">Recomendado</span>
+                    <h4 style="color: var(--color-primary); margin: 0.5rem 0;">Clase Individual</h4>
+                    <p style="font-size: 1.5rem; font-weight: 600; color: var(--color-accent);">$950 <span style="font-size: 0.875rem; font-weight: 400;">MXN</span></p>
+                    <p style="font-size: 0.875rem; color: var(--color-gray-600); margin-top: 0.5rem;">Incluye equipo + instructor privado</p>
+                </div>
+                <div class="precio-card" style="background: white; padding: 1.5rem; border-radius: 12px; text-align: center;">
+                    <h4 style="color: var(--color-primary); margin-bottom: 0.5rem;">Clase Grupal (4 pers.)</h4>
+                    <p style="font-size: 1.5rem; font-weight: 600; color: var(--color-accent);">$780 <span style="font-size: 0.875rem; font-weight: 400;">MXN c/u</span></p>
+                    <p style="font-size: 0.875rem; color: var(--color-gray-600); margin-top: 0.5rem;">Incluye instructor para 4 personas</p>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 0.75rem; color: var(--color-gray-600); margin-top: 1.5rem;">
+                *Niños menores de 12 años recomendable con instructor individual por seguridad. Tarifas sujetas a cambios sin previo aviso.
+            </p>
+        </div>
+    </section>
+
+    <!-- Golf Section -->
+    <section class="actividad-section" id="golf">
+        <div class="container">
+            <div class="actividad-wrapper">
+                <div class="actividad-image">
+                    <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&q=80" alt="Campo de Golf Monterreal" loading="lazy">
+                </div>
+                <div class="actividad-content">
+                    <span class="badge">El más alto de México</span>
+                    <h2>Campo de Golf</h2>
+                    <p>
+                        Juega golf en el campo más alto de México, a 2,900 metros sobre el nivel del mar.
+                        Contamos con 9 hoyos par 68, una extensión de 15 hectáreas y un lago artificial
+                        que hacen de esta experiencia algo único en el país.
+                    </p>
+                    <ul class="actividad-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            9 hoyos, par 68
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            15 hectáreas de extensión
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Lago artificial
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Renta de equipo y carros
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aventura Section -->
+    <section class="actividad-section" id="aventura">
+        <div class="container">
+            <div class="actividad-wrapper">
+                <div class="actividad-image">
+                    <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80" alt="Tirolesa Monterreal" loading="lazy">
+                </div>
+                <div class="actividad-content">
+                    <span class="badge">Adrenalina pura</span>
+                    <h2>Tirolesa & Rappel</h2>
+                    <p>
+                        Vive la emoción de volar sobre el bosque en nuestra tirolesa o desciende
+                        por impresionantes formaciones rocosas con nuestras actividades de rappel.
+                        Aventura segura con equipo profesional.
+                    </p>
+                    <ul class="actividad-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Tirolesa sobre el bosque
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Rappel para principiantes y avanzados
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Equipo de seguridad certificado
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Guías profesionales
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cabalgatas Section -->
+    <section class="actividad-section" id="cabalgatas">
+        <div class="container">
+            <div class="actividad-wrapper">
+                <div class="actividad-image">
+                    <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&q=80" alt="Cabalgatas Monterreal" loading="lazy">
+                </div>
+                <div class="actividad-content">
+                    <span class="badge">Paseos guiados</span>
+                    <h2>Cabalgatas</h2>
+                    <p>
+                        Explora los senderos del bosque a caballo con nuestros paseos guiados.
+                        Una experiencia tranquila y memorable para conectar con la naturaleza
+                        de la Sierra de Arteaga.
+                    </p>
+                    <ul class="actividad-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Paseos de 1 a 2 horas
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Caballos dóciles y entrenados
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Apto para todas las edades
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Rutas escénicas por el bosque
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cuatrimotos Section -->
+    <section class="actividad-section" id="cuatrimotos">
+        <div class="container">
+            <div class="actividad-wrapper">
+                <div class="actividad-image">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Cuatrimotos Monterreal" loading="lazy">
+                </div>
+                <div class="actividad-content">
+                    <span class="badge">Aventura en 4 ruedas</span>
+                    <h2>Cuatrimotos</h2>
+                    <p>
+                        Recorre los caminos de montaña a bordo de nuestras cuatrimotos.
+                        Una forma emocionante de explorar los paisajes de la sierra con
+                        toda la familia.
+                    </p>
+                    <ul class="actividad-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Cuatrimotos automáticas
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Recorridos guiados
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Equipo de seguridad incluido
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Diferentes rutas disponibles
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Más Actividades Section -->
+    <section class="actividad-section" id="mas">
+        <div class="container">
+            <div class="actividad-wrapper">
+                <div class="actividad-image">
+                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80" alt="Alberca Climatizada Monterreal" loading="lazy">
+                </div>
+                <div class="actividad-content">
+                    <span class="badge">Relax & Deporte</span>
+                    <h2>Más Actividades</h2>
+                    <p>
+                        Completa tu experiencia en Monterreal con nuestra variedad de
+                        instalaciones deportivas y de relajación disponibles para
+                        todos los huéspedes.
+                    </p>
+                    <ul class="actividad-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Alberca climatizada
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Canchas de tenis
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Caminatas y senderismo
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Fogatas nocturnas
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spa Section -->
+    <section style="padding: 5rem 0; background-color: var(--color-primary);">
+        <div class="container">
+            <div class="actividad-wrapper" style="color: white;">
+                <div class="actividad-image">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80" alt="Spa Alpino" loading="lazy">
+                </div>
+                <div class="actividad-content" style="color: white;">
+                    <span class="badge" style="background-color: var(--color-accent);">Bienestar</span>
+                    <h2 class="text-white">Spa Alpino</h2>
+                    <p style="color: rgba(255,255,255,0.9);">
+                        Renueva tu cuerpo y mente en nuestro Spa Alpino. Disfruta de tratamientos
+                        de relajación, masajes, faciales y más en un ambiente de tranquilidad
+                        rodeado por la naturaleza.
+                    </p>
+                    <a href="https://www.spaalpino.com" target="_blank" rel="noopener" class="btn btn-white" style="margin-top: 1rem;">
+                        VISITAR SPA ALPINO
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Reserva tu aventura</h2>
+                <p class="cta-text">Consulta disponibilidad de actividades con tu reservación</p>
+                <a href="https://direct-book.com/monterreal" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+                    RESERVAR AHORA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="footer-logo">MONTERREAL</h4>
+                    <p class="footer-address">
+                        Carretera San Antonio De Las Alazanas<br>
+                        Mesa de las Tablas KM 32<br>
+                        Sierra de Arteaga, Coahuila, 25370
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Teléfonos</h5>
+                    <ul class="footer-phones">
+                        <li>
+                            <span>Monterrey:</span>
+                            <a href="tel:+528120736268">812 073 7268</a>
+                        </li>
+                        <li>
+                            <span>Saltillo:</span>
+                            <a href="tel:+528444388170">844 438 8170</a>
+                        </li>
+                        <li>
+                            <span>Hotel:</span>
+                            <a href="tel:+528442562431">844 256 2431</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Enlaces</h5>
+                    <ul class="footer-links">
+                        <li><a href="cabanas.html">Cabañas</a></li>
+                        <li><a href="actividades.html">Actividades</a></li>
+                        <li><a href="https://www.spaalpino.com" target="_blank" rel="noopener">Spa Alpino</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Síguenos</h5>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/bosquesdemonterrealskigolf/" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/bosquesdemonterreal/" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCBFE7QN9VPGkU4CJA3g1eDA" target="_blank" rel="noopener" aria-label="YouTube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"></polygon>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bosques de Monterreal. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://api.whatsapp.com/send?phone=5218118239301&text=Hola,%20me%20gustaría%20información%20sobre%20las%20actividades"
+       class="whatsapp-button"
+       target="_blank"
+       rel="noopener"
+       aria-label="Contactar por WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
