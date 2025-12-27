@@ -219,15 +219,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: #ffffff;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .navbar.scrolled .navbar-logo,
 .navbar.scrolled .navbar-menu a {
-    color: var(--color-black);
+    color: #1a1a1a;
+    font-weight: 500;
 }
 
 .navbar.scrolled .navbar-menu a:hover {
@@ -305,6 +307,40 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar.scrolled .navbar-toggle span {
     background-color: var(--color-black);
+}
+
+/* Navbar Dark Variant - for pages with light backgrounds */
+.navbar.navbar-dark {
+    background-color: var(--color-primary);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.navbar.navbar-dark .navbar-logo,
+.navbar.navbar-dark .navbar-menu a {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.navbar.navbar-dark .navbar-menu a:hover {
+    color: var(--color-accent);
+}
+
+.navbar.navbar-dark .navbar-menu a.active {
+    color: var(--color-accent);
+}
+
+.navbar.navbar-dark .navbar-toggle span {
+    background-color: #ffffff;
+}
+
+.navbar.navbar-dark .navbar-cta {
+    background-color: #ffffff;
+    color: var(--color-primary);
+}
+
+.navbar.navbar-dark .navbar-cta:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
 }
 
 /* =========================================

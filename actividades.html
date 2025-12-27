@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Actividades en Bosques de Monterreal: Ski, Golf, Tirolesa, Cabalgatas, Cuatrimotos, Rappel y más. Aventura para toda la familia en la Sierra de Arteaga.">
+    <meta name="description" content="Actividades en Bosques de Monterreal: Ski, Golf, Tirolesa, Cabalgatas, Cuatrimotos, Rappel y más. Precios y horarios actualizados.">
 
     <title>Actividades | Bosques de Monterreal</title>
 
@@ -17,14 +17,296 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌲</text></svg>">
+
+    <style>
+        .actividades-info-header {
+            background: var(--color-primary);
+            padding: 2rem 0;
+            color: white;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .info-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .info-card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .info-card h4 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1rem;
+        }
+        .info-card p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .actividades-nav {
+            background: white;
+            border-bottom: 1px solid var(--color-gray-200);
+            position: sticky;
+            top: 70px;
+            z-index: 90;
+            overflow-x: auto;
+        }
+        .actividades-nav-list {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem 0;
+            list-style: none;
+            margin: 0;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .actividades-nav-list a {
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-gray-700);
+            text-decoration: none;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .actividades-nav-list a:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+        }
+
+        .actividad-categoria {
+            padding: 4rem 0;
+        }
+        .actividad-categoria:nth-child(even) {
+            background: var(--color-secondary);
+        }
+        .categoria-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .categoria-header h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .categoria-header p {
+            color: var(--color-gray-600);
+        }
+
+        .precio-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .precio-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid var(--color-gray-200);
+        }
+        .precio-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--color-gray-100);
+        }
+        .precio-card-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--color-secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .precio-card-title h3 {
+            margin: 0;
+            font-size: 1.125rem;
+            font-family: var(--font-display);
+        }
+        .precio-card-title span {
+            font-size: 0.75rem;
+            color: var(--color-gray-500);
+        }
+        .precio-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+        .precio-row:not(:last-child) {
+            border-bottom: 1px dashed var(--color-gray-200);
+        }
+        .precio-row span:first-child {
+            color: var(--color-gray-600);
+            font-size: 0.875rem;
+        }
+        .precio-row strong {
+            color: var(--color-accent);
+            font-size: 1.125rem;
+        }
+        .precio-card-note {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: var(--color-secondary);
+            border-radius: 8px;
+            font-size: 0.75rem;
+            color: var(--color-gray-600);
+        }
+
+        /* Tabla de Ski */
+        .ski-table-container {
+            overflow-x: auto;
+            margin-top: 2rem;
+        }
+        .ski-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .ski-table th {
+            background: var(--color-primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 500;
+        }
+        .ski-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--color-gray-100);
+        }
+        .ski-table tr:last-child td {
+            border-bottom: none;
+        }
+        .ski-table tr:hover td {
+            background: var(--color-secondary);
+        }
+        .ski-table .precio-cell {
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+
+        .advertencia-box {
+            background: #FEF3C7;
+            border: 1px solid #F59E0B;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        .advertencia-box h4 {
+            color: #B45309;
+            margin: 0 0 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .advertencia-box p {
+            margin: 0;
+            color: #92400E;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .requisitos-box {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .requisitos-box h4 {
+            margin: 0 0 1rem 0;
+            font-size: 1rem;
+            color: var(--color-primary);
+        }
+        .requisitos-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 0.5rem;
+        }
+        .requisitos-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--color-gray-700);
+        }
+        .requisitos-list svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+            color: var(--color-accent);
+        }
+
+        /* Golf Table */
+        .golf-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .golf-table th {
+            background: var(--color-primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        .golf-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--color-gray-100);
+        }
+        .golf-table tr:last-child td {
+            border-bottom: none;
+        }
+        .golf-table .precio-cell {
+            font-weight: 600;
+            color: var(--color-accent);
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .actividades-nav-list {
+                justify-content: flex-start;
+                padding: 1rem;
+            }
+            .ski-table th, .ski-table td,
+            .golf-table th, .golf-table td {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar scrolled" id="navbar">
+    <nav class="navbar navbar-dark" id="navbar">
         <div class="navbar-container">
             <a href="index.html" class="navbar-logo">MONTERREAL</a>
 
-            <button class="navbar-toggle" id="navbarToggle" aria-label="Menú">
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -32,9 +314,11 @@
 
             <ul class="navbar-menu" id="navbarMenu">
                 <li><a href="index.html">Inicio</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
                 <li><a href="cabanas.html">Cabañas</a></li>
                 <li><a href="actividades.html" class="active">Actividades</a></li>
-                <li><a href="index.html#instalaciones">Instalaciones</a></li>
+                <li><a href="https://www.spaalpino.com/" target="_blank" rel="noopener">Spa</a></li>
+                <li><a href="club.html">Club Monterreal</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
 
@@ -46,129 +330,345 @@
     <header class="actividades-hero">
         <div class="container">
             <h1 class="section-title text-white" style="margin-bottom: 1rem;">Actividades</h1>
-            <p style="font-size: 1.25rem; opacity: 0.9;">Aventura y diversión para toda la familia</p>
+            <p style="font-size: 1.25rem; opacity: 0.9;">Precios y horarios actualizados</p>
         </div>
     </header>
 
-    <!-- Ski Section -->
-    <section class="actividad-section" id="ski">
+    <!-- Info Header -->
+    <div class="actividades-info-header">
         <div class="container">
-            <div class="actividad-wrapper">
-                <div class="actividad-image">
-                    <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&q=80" alt="Pista de Ski Monterreal" loading="lazy">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Telefono Actividades</h4>
+                        <p>
+                            <a href="tel:+528444119800" style="color: white;">844 411 9800</a><br>
+                            Ext. Recepcion: 2003, 2005, 2006<br>
+                            Ext. Restaurant: 2008 | Spa: 2021 | Alberca: 2014
+                        </p>
+                    </div>
                 </div>
-                <div class="actividad-content">
-                    <span class="badge">365 días al año</span>
-                    <h2>Ski & Snowboard</h2>
-                    <p>
-                        Disfruta de la única pista de ski en el noreste de México, abierta todo el año
-                        gracias a nuestro sistema de nieve artificial. Perfecto tanto para principiantes
-                        como para esquiadores experimentados.
-                    </p>
-                    <ul class="actividad-list">
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Clases grupales e individuales disponibles
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Renta de equipo completo
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Pista de aprendizaje disponible
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Snowboard también disponible
-                        </li>
-                    </ul>
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Horarios de Atencion</h4>
+                        <p>
+                            Lunes a Viernes: 08:30 AM - 4:30 PM<br>
+                            Sabado y Domingo: 08:30 AM - 5:30 PM
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="actividades-nav">
+        <div class="container">
+            <ul class="actividades-nav-list">
+                <li><a href="#nieve">Nieve y Aventura</a></li>
+                <li><a href="#ski">Pista de Ski</a></li>
+                <li><a href="#caballos">Caballos y Granja</a></li>
+                <li><a href="#kids">Kids Club</a></li>
+                <li><a href="#cuatrimotos">Cuatrimotos</a></li>
+                <li><a href="#golf">Golf</a></li>
+                <li><a href="#spa">Spa</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- NIEVE Y AVENTURA -->
+    <section class="actividad-categoria" id="nieve">
+        <div class="container">
+            <div class="categoria-header">
+                <span class="badge">Adrenalina</span>
+                <h2>Actividades de Nieve y Aventura</h2>
+                <p>Diversion para toda la familia</p>
+            </div>
+
+            <div class="precio-cards">
+                <!-- Snow Tubes -->
+                <div class="precio-card">
+                    <div class="precio-card-header">
+                        <div class="precio-card-icon">🛷</div>
+                        <div class="precio-card-title">
+                            <h3>Snow Tubes</h3>
+                            <span>Edad minima: +1 ano</span>
+                        </div>
+                    </div>
+                    <div class="precio-row">
+                        <span>1/2 hora</span>
+                        <strong>$270</strong>
+                    </div>
+                    <div class="precio-row">
+                        <span>1 hora</span>
+                        <strong>$350</strong>
+                    </div>
+                </div>
+
+                <!-- Tirolesa -->
+                <div class="precio-card">
+                    <div class="precio-card-header">
+                        <div class="precio-card-icon">🪂</div>
+                        <div class="precio-card-title">
+                            <h3>Tirolesa</h3>
+                            <span>3 lanzadas por persona</span>
+                        </div>
+                    </div>
+                    <div class="precio-row">
+                        <span>Por persona</span>
+                        <strong>$345</strong>
+                    </div>
+                </div>
+
+                <!-- Rapel -->
+                <div class="precio-card">
+                    <div class="precio-card-header">
+                        <div class="precio-card-icon">🧗</div>
+                        <div class="precio-card-title">
+                            <h3>Rapel</h3>
+                            <span>3 intentos por persona</span>
+                        </div>
+                    </div>
+                    <div class="precio-row">
+                        <span>Por persona</span>
+                        <strong>$270</strong>
+                    </div>
+                </div>
+
+                <!-- Roller Zip -->
+                <div class="precio-card">
+                    <div class="precio-card-header">
+                        <div class="precio-card-icon">🎢</div>
+                        <div class="precio-card-title">
+                            <h3>Roller Zip</h3>
+                            <span>3 lanzadas por persona</span>
+                        </div>
+                    </div>
+                    <div class="precio-row">
+                        <span>Por persona</span>
+                        <strong>$1,350</strong>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Precios Ski -->
-    <section class="precios-ski" style="padding: 3rem 0; background-color: var(--color-secondary);">
+    <!-- PISTA DE SKI -->
+    <section class="actividad-categoria" id="ski">
         <div class="container">
-            <h3 style="font-family: var(--font-display); text-align: center; margin-bottom: 2rem;">Tarifas de Ski (por persona, por hora)</h3>
-            <div class="precios-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-                <div class="precio-card" style="background: white; padding: 1.5rem; border-radius: 12px; text-align: center;">
-                    <h4 style="color: var(--color-primary); margin-bottom: 0.5rem;">Solo Acceso a Pista</h4>
-                    <p style="font-size: 1.5rem; font-weight: 600; color: var(--color-accent);">$495 <span style="font-size: 0.875rem; font-weight: 400;">MXN Adulto</span></p>
-                    <p style="font-size: 1.25rem; color: var(--color-gray-600);">$320 <span style="font-size: 0.875rem;">MXN Niño</span></p>
-                    <p style="font-size: 0.75rem; color: var(--color-gray-600); margin-top: 0.5rem;">Sin equipo ni instructor</p>
-                </div>
-                <div class="precio-card" style="background: white; padding: 1.5rem; border-radius: 12px; text-align: center;">
-                    <h4 style="color: var(--color-primary); margin-bottom: 0.5rem;">Con Equipo</h4>
-                    <p style="font-size: 1.5rem; font-weight: 600; color: var(--color-accent);">$695 <span style="font-size: 0.875rem; font-weight: 400;">MXN</span></p>
-                    <p style="font-size: 0.875rem; color: var(--color-gray-600); margin-top: 0.5rem;">Incluye renta de equipo completo</p>
-                </div>
-                <div class="precio-card" style="background: white; padding: 1.5rem; border-radius: 12px; text-align: center; border: 2px solid var(--color-accent);">
-                    <span style="background: var(--color-accent); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem;">Recomendado</span>
-                    <h4 style="color: var(--color-primary); margin: 0.5rem 0;">Clase Individual</h4>
-                    <p style="font-size: 1.5rem; font-weight: 600; color: var(--color-accent);">$950 <span style="font-size: 0.875rem; font-weight: 400;">MXN</span></p>
-                    <p style="font-size: 0.875rem; color: var(--color-gray-600); margin-top: 0.5rem;">Incluye equipo + instructor privado</p>
-                </div>
-                <div class="precio-card" style="background: white; padding: 1.5rem; border-radius: 12px; text-align: center;">
-                    <h4 style="color: var(--color-primary); margin-bottom: 0.5rem;">Clase Grupal (4 pers.)</h4>
-                    <p style="font-size: 1.5rem; font-weight: 600; color: var(--color-accent);">$780 <span style="font-size: 0.875rem; font-weight: 400;">MXN c/u</span></p>
-                    <p style="font-size: 0.875rem; color: var(--color-gray-600); margin-top: 0.5rem;">Incluye instructor para 4 personas</p>
-                </div>
+            <div class="categoria-header">
+                <span class="badge">365 dias al ano</span>
+                <h2>Pista de Ski</h2>
+                <p>Edad minima: +8 anos</p>
             </div>
-            <p style="text-align: center; font-size: 0.75rem; color: var(--color-gray-600); margin-top: 1.5rem;">
-                *Niños menores de 12 años recomendable con instructor individual por seguridad. Tarifas sujetas a cambios sin previo aviso.
+
+            <div class="ski-table-container">
+                <table class="ski-table">
+                    <thead>
+                        <tr>
+                            <th>Opcion</th>
+                            <th>Descripcion</th>
+                            <th>Duracion</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>SKI #1</strong></td>
+                            <td>Solo pista (no incluye instructor ni renta de equipo). Indispensable saber esquiar.</td>
+                            <td>1 hora</td>
+                            <td class="precio-cell">$750</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SKI #2</strong></td>
+                            <td>Solo renta de equipo (indispensable saber esquiar)</td>
+                            <td>1 hora</td>
+                            <td class="precio-cell">$935</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SKI #3</strong></td>
+                            <td>Instructor y renta de equipo. Ninos menores de 12 anos con instructor individual por seguridad.</td>
+                            <td>1 hora</td>
+                            <td class="precio-cell">$1,275</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SKI #4</strong></td>
+                            <td>Instructor para 4 personas y renta de equipo. Mayores de 12 anos pueden ir en grupo.</td>
+                            <td>1 hora</td>
+                            <td class="precio-cell">$1,040</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="text-align: center; margin-top: 1.5rem; color: var(--color-gray-600);">
+                <strong>Diferencia de instructor:</strong> $600
             </p>
+
+            <div class="advertencia-box">
+                <h4>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    Advertencia Importante
+                </h4>
+                <p>
+                    El patrullero evaluara si esta o no preparado para usar la pista. Se le pedira que salga de la pista y <strong>no habra reembolso</strong>.
+                    Podra cubrir el costo de una hora de instructor: $1,275 por persona en clase privada o $1,040 en grupo, o usar la pista de aprendizaje.
+                </p>
+            </div>
         </div>
     </section>
 
-    <!-- Golf Section -->
-    <section class="actividad-section" id="golf">
+    <!-- CABALLOS Y GRANJA -->
+    <section class="actividad-categoria" id="caballos">
         <div class="container">
-            <div class="actividad-wrapper">
-                <div class="actividad-image">
-                    <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&q=80" alt="Campo de Golf Monterreal" loading="lazy">
+            <div class="categoria-header">
+                <span class="badge">Naturaleza</span>
+                <h2>Actividades Ecuestres y Granja</h2>
+                <p>Horario de renta: 10:30 AM a 4:30 PM (cualquier dia)</p>
+            </div>
+
+            <div class="precio-cards">
+                <!-- La Granja -->
+                <div class="precio-card">
+                    <div class="precio-card-header">
+                        <div class="precio-card-icon">🐔</div>
+                        <div class="precio-card-title">
+                            <h3>La Granja</h3>
+                            <span>Visita nuestros animales</span>
+                        </div>
+                    </div>
+                    <div class="precio-row">
+                        <span>Donativo</span>
+                        <strong>$30</strong>
+                    </div>
                 </div>
-                <div class="actividad-content">
-                    <span class="badge">El más alto de México</span>
-                    <h2>Campo de Golf</h2>
-                    <p>
-                        Juega golf en el campo más alto de México, a 2,900 metros sobre el nivel del mar.
-                        Contamos con 9 hoyos par 68, una extensión de 15 hectáreas y un lago artificial
-                        que hacen de esta experiencia algo único en el país.
-                    </p>
-                    <ul class="actividad-list">
+
+                <!-- Caballos -->
+                <div class="precio-card">
+                    <div class="precio-card-header">
+                        <div class="precio-card-icon">🐴</div>
+                        <div class="precio-card-title">
+                            <h3>Caballos</h3>
+                            <span>Paseos guiados</span>
+                        </div>
+                    </div>
+                    <div class="precio-row">
+                        <span>1/2 hora</span>
+                        <strong>$300</strong>
+                    </div>
+                    <div class="precio-row">
+                        <span>1 hora</span>
+                        <strong>$450</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KIDS CLUB -->
+    <section class="actividad-categoria" id="kids">
+        <div class="container">
+            <div class="categoria-header">
+                <span class="badge">Ninos</span>
+                <h2>Kids Club</h2>
+                <p>Diversion supervisada para los mas pequenos</p>
+            </div>
+
+            <div class="precio-cards" style="max-width: 400px; margin: 0 auto;">
+                <div class="precio-card">
+                    <div class="precio-card-header">
+                        <div class="precio-card-icon">🎈</div>
+                        <div class="precio-card-title">
+                            <h3>Kids Club</h3>
+                            <span>Edad: 5 a 10 anos</span>
+                        </div>
+                    </div>
+                    <div class="precio-row">
+                        <span>Por nino</span>
+                        <strong>$425</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUATRIMOTOS -->
+    <section class="actividad-categoria" id="cuatrimotos">
+        <div class="container">
+            <div class="categoria-header">
+                <span class="badge">Aventura</span>
+                <h2>Cuatrimotos</h2>
+                <p>Recorre los caminos de la sierra</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto;">
+                <div class="precio-card">
+                    <div class="precio-card-header">
+                        <div class="precio-card-icon">🏍️</div>
+                        <div class="precio-card-title">
+                            <h3>Cuatrimotos</h3>
+                            <span>Huesped / Socio</span>
+                        </div>
+                    </div>
+                    <div class="precio-row">
+                        <span>Recorrido</span>
+                        <strong>$1,050</strong>
+                    </div>
+                </div>
+
+                <div class="requisitos-box">
+                    <h4>Requisitos y Condiciones</h4>
+                    <ul class="requisitos-list">
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            9 hoyos, par 68
+                            <span><strong>Garantia:</strong> Apertura de check-in con tarjeta de credito por $10,000 pesos (se cancela al termino y se refleja en 3 dias habiles)</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            15 hectáreas de extensión
+                            <span><strong>Conductores:</strong> Mayores de +18 anos con licencia vigente</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            Lago artificial
+                            <span><strong>Acompanantes:</strong> Mayores de +12 anos por seguridad</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            Renta de equipo y carros
+                            <span><strong>Tipo:</strong> Cuatrimotos semi-automaticas</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span><strong>Peso maximo:</strong> 120 kg</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span><strong>Recorrido:</strong> Establecido por el guia al frente</span>
                         </li>
                     </ul>
                 </div>
@@ -176,192 +676,59 @@
         </div>
     </section>
 
-    <!-- Aventura Section -->
-    <section class="actividad-section" id="aventura">
+    <!-- GOLF -->
+    <section class="actividad-categoria" id="golf">
         <div class="container">
-            <div class="actividad-wrapper">
-                <div class="actividad-image">
-                    <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80" alt="Tirolesa Monterreal" loading="lazy">
-                </div>
-                <div class="actividad-content">
-                    <span class="badge">Adrenalina pura</span>
-                    <h2>Tirolesa & Rappel</h2>
-                    <p>
-                        Vive la emoción de volar sobre el bosque en nuestra tirolesa o desciende
-                        por impresionantes formaciones rocosas con nuestras actividades de rappel.
-                        Aventura segura con equipo profesional.
-                    </p>
-                    <ul class="actividad-list">
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Tirolesa sobre el bosque
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Rappel para principiantes y avanzados
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Equipo de seguridad certificado
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Guías profesionales
-                        </li>
-                    </ul>
-                </div>
+            <div class="categoria-header">
+                <span class="badge">El mas alto de Mexico</span>
+                <h2>Campo de Golf</h2>
+                <p>Disponible para Huesped, Socio y Publico General</p>
+            </div>
+
+            <div style="max-width: 600px; margin: 0 auto;">
+                <table class="golf-table">
+                    <thead>
+                        <tr>
+                            <th>Concepto</th>
+                            <th style="text-align: right;">Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Green Fee (precio normal)</td>
+                            <td class="precio-cell">$1,700</td>
+                        </tr>
+                        <tr>
+                            <td>Carrito 9 hoyos</td>
+                            <td class="precio-cell">$500</td>
+                        </tr>
+                        <tr>
+                            <td>Carrito 18 hoyos</td>
+                            <td class="precio-cell">$700</td>
+                        </tr>
+                        <tr>
+                            <td>Equipo</td>
+                            <td class="precio-cell">$670</td>
+                        </tr>
+                        <tr>
+                            <td>Tee de practica</td>
+                            <td class="precio-cell">$350</td>
+                        </tr>
+                        <tr>
+                            <td>Socio Membresia AAA</td>
+                            <td class="precio-cell">$0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: center; font-size: 0.875rem; color: var(--color-gray-600); margin-top: 1rem;">
+                    Contamos con 2 carritos de golf (actualmente fuera de servicio) y 3 equipos para renta.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Cabalgatas Section -->
-    <section class="actividad-section" id="cabalgatas">
-        <div class="container">
-            <div class="actividad-wrapper">
-                <div class="actividad-image">
-                    <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&q=80" alt="Cabalgatas Monterreal" loading="lazy">
-                </div>
-                <div class="actividad-content">
-                    <span class="badge">Paseos guiados</span>
-                    <h2>Cabalgatas</h2>
-                    <p>
-                        Explora los senderos del bosque a caballo con nuestros paseos guiados.
-                        Una experiencia tranquila y memorable para conectar con la naturaleza
-                        de la Sierra de Arteaga.
-                    </p>
-                    <ul class="actividad-list">
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Paseos de 1 a 2 horas
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Caballos dóciles y entrenados
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Apto para todas las edades
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Rutas escénicas por el bosque
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cuatrimotos Section -->
-    <section class="actividad-section" id="cuatrimotos">
-        <div class="container">
-            <div class="actividad-wrapper">
-                <div class="actividad-image">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Cuatrimotos Monterreal" loading="lazy">
-                </div>
-                <div class="actividad-content">
-                    <span class="badge">Aventura en 4 ruedas</span>
-                    <h2>Cuatrimotos</h2>
-                    <p>
-                        Recorre los caminos de montaña a bordo de nuestras cuatrimotos.
-                        Una forma emocionante de explorar los paisajes de la sierra con
-                        toda la familia.
-                    </p>
-                    <ul class="actividad-list">
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Cuatrimotos automáticas
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Recorridos guiados
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Equipo de seguridad incluido
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Diferentes rutas disponibles
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Más Actividades Section -->
-    <section class="actividad-section" id="mas">
-        <div class="container">
-            <div class="actividad-wrapper">
-                <div class="actividad-image">
-                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80" alt="Alberca Climatizada Monterreal" loading="lazy">
-                </div>
-                <div class="actividad-content">
-                    <span class="badge">Relax & Deporte</span>
-                    <h2>Más Actividades</h2>
-                    <p>
-                        Completa tu experiencia en Monterreal con nuestra variedad de
-                        instalaciones deportivas y de relajación disponibles para
-                        todos los huéspedes.
-                    </p>
-                    <ul class="actividad-list">
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Alberca climatizada
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Canchas de tenis
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Caminatas y senderismo
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Fogatas nocturnas
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Spa Section -->
-    <section style="padding: 5rem 0; background-color: var(--color-primary);">
+    <!-- SPA -->
+    <section style="padding: 5rem 0; background-color: var(--color-primary);" id="spa">
         <div class="container">
             <div class="actividad-wrapper" style="color: white;">
                 <div class="actividad-image">
@@ -372,8 +739,11 @@
                     <h2 class="text-white">Spa Alpino</h2>
                     <p style="color: rgba(255,255,255,0.9);">
                         Renueva tu cuerpo y mente en nuestro Spa Alpino. Disfruta de tratamientos
-                        de relajación, masajes, faciales y más en un ambiente de tranquilidad
+                        de relajacion, masajes, faciales y mas en un ambiente de tranquilidad
                         rodeado por la naturaleza.
+                    </p>
+                    <p style="color: rgba(255,255,255,0.8); font-size: 0.875rem; margin-top: 0.5rem;">
+                        <strong>Extension:</strong> 2021
                     </p>
                     <a href="https://www.spaalpino.com" target="_blank" rel="noopener" class="btn btn-white" style="margin-top: 1rem;">
                         VISITAR SPA ALPINO
@@ -393,7 +763,7 @@
         <div class="container">
             <div class="cta-content">
                 <h2 class="cta-title">Reserva tu aventura</h2>
-                <p class="cta-text">Consulta disponibilidad de actividades con tu reservación</p>
+                <p class="cta-text">Consulta disponibilidad de actividades con tu reservacion</p>
                 <a href="https://direct-book.com/monterreal" target="_blank" rel="noopener" class="btn btn-primary btn-large">
                     RESERVAR AHORA
                 </a>
@@ -415,7 +785,7 @@
                 </div>
 
                 <div class="footer-col">
-                    <h5>Teléfonos</h5>
+                    <h5>Telefonos</h5>
                     <ul class="footer-phones">
                         <li>
                             <span>Monterrey:</span>
@@ -435,7 +805,7 @@
                 <div class="footer-col">
                     <h5>Enlaces</h5>
                     <ul class="footer-links">
-                        <li><a href="cabanas.html">Cabañas</a></li>
+                        <li><a href="cabanas.html">Cabanas</a></li>
                         <li><a href="actividades.html">Actividades</a></li>
                         <li><a href="https://www.spaalpino.com" target="_blank" rel="noopener">Spa Alpino</a></li>
                         <li><a href="contacto.html">Contacto</a></li>
@@ -443,7 +813,7 @@
                 </div>
 
                 <div class="footer-col">
-                    <h5>Síguenos</h5>
+                    <h5>Siguenos</h5>
                     <div class="footer-social">
                         <a href="https://www.facebook.com/bosquesdemonterrealskigolf/" target="_blank" rel="noopener" aria-label="Facebook">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -474,7 +844,7 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://api.whatsapp.com/send?phone=5218118239301&text=Hola,%20me%20gustaría%20información%20sobre%20las%20actividades"
+    <a href="https://api.whatsapp.com/send?phone=5218118239301&text=Hola,%20me%20gustaria%20informacion%20sobre%20las%20actividades"
        class="whatsapp-button"
        target="_blank"
        rel="noopener"
