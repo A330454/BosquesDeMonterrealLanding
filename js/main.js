@@ -43,19 +43,34 @@ const Navbar = {
 const MobileMenu = {
     toggle: null,
     menu: null,
+    navbar: null,
     isOpen: false,
 
     init() {
         this.toggle = document.getElementById('navbarToggle');
         this.menu = document.getElementById('navbarMenu');
+        this.navbar = document.getElementById('navbar');
 
         if (!this.toggle || !this.menu) return;
 
-        this.toggle.addEventListener('click', () => this.toggleMenu());
+        // Use both click and touchend for better mobile support
+        this.toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.toggleMenu();
+        });
+
+        // Touchend for iOS devices
+        this.toggle.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.toggleMenu();
+        }, { passive: false });
 
         // Close menu when clicking a link
         this.menu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => this.closeMenu());
+            link.addEventListener('touchend', () => this.closeMenu());
         });
 
         // Close menu when clicking outside
@@ -68,6 +83,20 @@ const MobileMenu = {
         // Close menu on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.isOpen) {
+                this.closeMenu();
+            }
+        });
+
+        // Handle orientation change
+        window.addEventListener('orientationchange', () => {
+            if (this.isOpen) {
+                this.closeMenu();
+            }
+        });
+
+        // Handle resize (close menu if going to desktop size)
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && this.isOpen) {
                 this.closeMenu();
             }
         });
@@ -84,14 +113,19 @@ const MobileMenu = {
             spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
             spans[1].style.opacity = '0';
             spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+            document.body.style.height = '100%';
         } else {
             spans[0].style.transform = '';
             spans[1].style.opacity = '';
             spans[2].style.transform = '';
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.height = '';
         }
-
-        // Prevent body scroll when menu is open
-        document.body.style.overflow = this.isOpen ? 'hidden' : '';
     },
 
     closeMenu() {

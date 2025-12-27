@@ -295,7 +295,11 @@ h1, h2, h3, h4, h5, h6 {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 10px;
+    z-index: 10000;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .navbar-toggle span {
@@ -1497,16 +1501,22 @@ a.cabana-card {
         background-color: var(--color-white);
         transform: translateX(100%);
         transition: transform var(--transition-normal);
+        z-index: 9999;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .navbar-menu.active {
         transform: translateX(0);
+        visibility: visible;
     }
 
     .navbar-menu a {
         color: var(--color-black);
         font-size: 1.25rem;
-        padding: var(--space-sm) 0;
+        padding: var(--space-md) 0;
+        display: block;
+        -webkit-tap-highlight-color: transparent;
     }
 
     .navbar-toggle {
