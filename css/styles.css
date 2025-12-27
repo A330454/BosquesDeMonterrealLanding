@@ -1067,24 +1067,35 @@ h1, h2, h3, h4, h5, h6 {
 
 /* =========================================
    PAGE HERO (with background image)
+   Mobile-First Approach: Base styles for 320px+
    ========================================= */
 .page-hero {
     position: relative;
-    height: 50vh;
-    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Mobile base: auto height with proper padding */
+    min-height: auto;
+    height: auto;
+    padding: calc(var(--navbar-height) + var(--space-lg)) var(--space-sm) var(--space-xl);
+    /* Background handling for mobile */
     background-size: cover;
-    background-position: center 25%;
-    background-attachment: fixed;
+    background-position: center center;
+    background-attachment: scroll; /* Scroll for mobile performance */
+    background-repeat: no-repeat;
 }
 
 .page-hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+    /* Stronger gradient for better text readability on mobile */
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.5) 0%,
+        rgba(0,0,0,0.6) 50%,
+        rgba(0,0,0,0.7) 100%
+    );
 }
 
 .page-hero .container {
@@ -1092,26 +1103,152 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
     text-align: center;
     color: var(--color-white);
+    padding: 0 var(--space-xs);
+    max-width: 100%;
 }
 
+/* Mobile base typography - optimized for small screens */
 .page-hero .section-title {
     color: var(--color-white);
+    font-size: 1.5rem;
+    line-height: 1.2;
     margin-bottom: var(--space-sm);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .page-hero .section-subtitle {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* =========================================
+   PAGE HERO - Tablet (576px+)
+   ========================================= */
+@media (min-width: 576px) {
+    .page-hero {
+        padding: calc(var(--navbar-height) + var(--space-xl)) var(--space-md) var(--space-2xl);
+        min-height: 300px;
+    }
+
+    .page-hero .section-title {
+        font-size: 1.75rem;
+    }
+
+    .page-hero .section-subtitle {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+}
+
+/* =========================================
+   PAGE HERO - Small Desktop (768px+)
+   ========================================= */
+@media (min-width: 768px) {
+    .page-hero {
+        min-height: 350px;
+        padding: calc(var(--navbar-height) + var(--space-2xl)) var(--space-lg) var(--space-2xl);
+        background-position: center 25%;
+    }
+
+    .page-hero .container {
+        padding: 0 var(--space-md);
+    }
+
+    .page-hero .section-title {
+        font-size: 2rem;
+        margin-bottom: var(--space-md);
+    }
+
+    .page-hero .section-subtitle {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        max-width: 80%;
+    }
+}
+
+/* =========================================
+   PAGE HERO - Desktop (992px+)
+   ========================================= */
+@media (min-width: 992px) {
+    .page-hero {
+        height: 45vh;
+        min-height: 380px;
+        max-height: 500px;
+        padding: 0;
+        background-attachment: fixed;
+    }
+
+    .page-hero::before {
+        background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+    }
+
+    .page-hero .section-title {
+        font-size: 2.5rem;
+    }
+
+    .page-hero .section-subtitle {
+        font-size: 1.25rem;
+        max-width: 70%;
+    }
+}
+
+/* =========================================
+   PAGE HERO - Large Desktop (1200px+)
+   ========================================= */
+@media (min-width: 1200px) {
+    .page-hero {
+        height: 50vh;
+        min-height: 400px;
+        max-height: 600px;
+    }
+
+    .page-hero .section-title {
+        font-size: 3rem;
+    }
+
+    .page-hero .section-subtitle {
+        max-width: 60%;
+    }
 }
 
 /* =========================================
    CABANAS PAGE
    ========================================= */
+.cabanas-hero {
+    background-image: url('../images/d1e971a24749f3333ee830578a4fbedb-xxlarge.jpg');
+    background-position: center bottom;
+}
+
+@media (min-width: 768px) {
+    .cabanas-hero {
+        background-position: center 70%;
+    }
+}
+
 .cabanas-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-xl);
     padding: var(--space-3xl) 0;
+}
+
+/* Disclaimer below cabanas grid */
+.cabanas-disclaimer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-gray-500);
+    font-style: italic;
+    margin: 0;
+    padding-bottom: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+    .cabanas-disclaimer {
+        font-size: 0.875rem;
+    }
 }
 
 .cabana-card {
@@ -1593,8 +1730,7 @@ a.cabana-card {
         background-attachment: scroll;
     }
 
-    .actividades-hero,
-    .page-hero {
+    .actividades-hero {
         background-attachment: scroll;
     }
 }
