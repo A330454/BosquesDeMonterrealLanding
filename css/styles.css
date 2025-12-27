@@ -1478,46 +1478,56 @@ a.cabana-card {
 }
 
 /* =========================================
-   CONTACTO PAGE
+   CONTACTO PAGE - Mobile First
    ========================================= */
 .contacto-section {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-xl) 0;
 }
 
-.contacto-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
-}
-
-.contacto-info h2 {
-    font-size: 2rem;
-    margin-bottom: var(--space-lg);
-}
-
-.contacto-info p {
-    color: var(--color-gray-600);
-    line-height: 1.8;
+.contacto-header {
+    text-align: center;
     margin-bottom: var(--space-xl);
 }
 
+.contacto-header h2 {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-md);
+}
+
+.contacto-header p {
+    color: var(--color-gray-600);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Mobile: stack everything in one column */
 .contacto-details {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
 }
 
 .contacto-item {
     display: flex;
     gap: var(--space-md);
+    padding: var(--space-md);
+    background-color: var(--color-gray-50);
+    border-radius: var(--radius-md);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.contacto-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 .contacto-item-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     background-color: var(--color-primary);
     color: var(--color-white);
     border-radius: var(--radius-full);
@@ -1526,7 +1536,7 @@ a.cabana-card {
 
 .contacto-item-content h4 {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     margin-bottom: var(--space-xs);
 }
@@ -1534,11 +1544,126 @@ a.cabana-card {
 .contacto-item-content p,
 .contacto-item-content a {
     color: var(--color-gray-600);
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
 }
 
 .contacto-item-content a:hover {
     color: var(--color-primary);
+}
+
+/* Equipo de ventas - Mobile */
+.equipo-ventas {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-gray-200);
+}
+
+.equipo-ventas h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    margin-bottom: var(--space-md);
+    text-align: center;
+}
+
+.equipo-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+}
+
+.equipo-member {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background-color: var(--color-gray-50);
+    border-radius: var(--radius-md);
+}
+
+.equipo-member-avatar {
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.equipo-member-info strong {
+    display: block;
+    font-size: 0.9375rem;
+    margin-bottom: 0.125rem;
+}
+
+.equipo-member-info span {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--color-gray-500);
+    margin-bottom: 0.25rem;
+}
+
+.equipo-member-info a {
+    color: var(--color-primary);
+    font-size: 0.875rem;
+}
+
+/* Tablet: 2 columns for contact items */
+@media (min-width: 640px) {
+    .contacto-section {
+        padding: var(--space-2xl) 0;
+    }
+
+    .contacto-header h2 {
+        font-size: 2rem;
+    }
+
+    .contacto-details {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+    }
+
+    .equipo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop: 3 columns for better space usage */
+@media (min-width: 1024px) {
+    .contacto-section {
+        padding: var(--space-3xl) 0;
+    }
+
+    .contacto-header {
+        margin-bottom: var(--space-2xl);
+    }
+
+    .contacto-header h2 {
+        font-size: 2.25rem;
+    }
+
+    .contacto-details {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-lg);
+    }
+
+    /* Make ubicación span 2 columns on desktop */
+    .contacto-item--ubicacion {
+        grid-column: span 2;
+    }
+
+    .equipo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .equipo-ventas h3 {
+        text-align: left;
+    }
 }
 
 .contacto-form {
@@ -1709,8 +1834,7 @@ a.cabana-card {
 
     .actividades-wrapper,
     .restaurante-wrapper,
-    .actividad-wrapper,
-    .contacto-grid {
+    .actividad-wrapper {
         grid-template-columns: 1fr;
     }
 
