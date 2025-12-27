@@ -1,0 +1,429 @@
+/* =========================================
+   CABANA DETALLE - Mobile First Styles
+   ========================================= */
+
+/* Back Link */
+.cabana-back-container {
+    padding: calc(var(--navbar-height) + 1rem) var(--space-md) 0;
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.cabana-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.cabana-back-link:hover {
+    color: var(--color-primary-dark);
+}
+
+/* Loading State */
+.cabana-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    color: var(--color-gray-600);
+}
+
+/* Main Detail Container */
+.cabana-detalle {
+    padding: var(--space-md);
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+/* Hero Carousel */
+.cabana-hero {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: var(--space-lg);
+}
+
+.cabana-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.cabana-carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cabana-carousel-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+}
+
+.cabana-carousel-slide img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Carousel Navigation Buttons */
+.cabana-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cabana-carousel-btn:hover {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cabana-carousel-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.cabana-carousel-btn-prev {
+    left: 1rem;
+}
+
+.cabana-carousel-btn-next {
+    right: 1rem;
+}
+
+.cabana-carousel-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--color-primary);
+    stroke-width: 2;
+}
+
+/* Carousel Indicators */
+.cabana-carousel-indicators {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.cabana-carousel-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.cabana-carousel-indicator.active {
+    background: white;
+    width: 24px;
+    border-radius: 4px;
+}
+
+.cabana-carousel-indicator:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Hide navigation if only one image */
+.cabana-carousel[data-single-image="true"] .cabana-carousel-btn,
+.cabana-carousel[data-single-image="true"] .cabana-carousel-indicators {
+    display: none;
+}
+
+.cabana-hero img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.cabana-hero-badge {
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+    padding: 0.5rem 1rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-sm);
+}
+
+/* Header Info */
+.cabana-header {
+    margin-bottom: var(--space-lg);
+}
+
+.cabana-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-sm);
+}
+
+.cabana-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    color: var(--color-gray-600);
+    font-size: 0.875rem;
+}
+
+.cabana-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.cabana-meta-item svg {
+    flex-shrink: 0;
+}
+
+/* Description */
+.cabana-descripcion {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.cabana-descripcion p {
+    color: var(--color-gray-600);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* Info Sections */
+.cabana-section {
+    margin-bottom: var(--space-xl);
+}
+
+.cabana-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.125rem;
+    margin-bottom: var(--space-md);
+    color: var(--color-black);
+}
+
+.cabana-section-title svg {
+    color: var(--color-primary);
+}
+
+/* Lists */
+.cabana-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.cabana-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    color: var(--color-gray-700);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+.cabana-list li::before {
+    content: "•";
+    color: var(--color-primary);
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* Amenities Grid */
+.cabana-amenidades-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+}
+
+.cabana-amenidad {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 0.875rem;
+    background-color: var(--color-gray-100);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    color: var(--color-gray-700);
+}
+
+.cabana-amenidad svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+/* Upgrade Card */
+.cabana-upgrade-card {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    color: var(--color-white);
+    margin-bottom: var(--space-xl);
+}
+
+.cabana-upgrade-card h3 {
+    color: var(--color-white);
+    font-size: 1.125rem;
+    margin-bottom: var(--space-sm);
+}
+
+.cabana-upgrade-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cabana-upgrade-card li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+}
+
+.cabana-upgrade-card li::before {
+    content: "✓";
+    font-weight: bold;
+}
+
+/* Location Card */
+.cabana-ubicacion {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background-color: var(--color-secondary);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-xl);
+}
+
+.cabana-ubicacion svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.cabana-ubicacion p {
+    color: var(--color-gray-700);
+    font-size: 0.9375rem;
+}
+
+/* Note */
+.cabana-nota {
+    font-size: 0.8125rem;
+    color: var(--color-gray-600);
+    font-style: italic;
+    text-align: center;
+    padding: var(--space-md);
+    background-color: var(--color-gray-100);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-lg);
+}
+
+/* CTA Button Mobile */
+.cabana-cta-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-md);
+    background-color: var(--color-white);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.cabana-cta-mobile .btn {
+    width: 100%;
+}
+
+/* =========================================
+   TABLET STYLES (768px+)
+   ========================================= */
+@media (min-width: 768px) {
+    .cabana-detalle {
+        padding: var(--space-xl);
+    }
+
+    .cabana-hero img {
+        height: 400px;
+    }
+
+    .cabana-header h1 {
+        font-size: 2.25rem;
+    }
+
+    .cabana-amenidades-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cabana-cta-mobile {
+        display: none;
+    }
+}
+
+/* =========================================
+   DESKTOP STYLES (1024px+)
+   ========================================= */
+@media (min-width: 1024px) {
+    .cabana-back-container {
+        padding-top: calc(var(--navbar-height) + 2rem);
+    }
+
+    .cabana-detalle {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: var(--space-2xl);
+        padding: var(--space-xl) var(--space-md);
+    }
+
+    .cabana-hero {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+    }
+
+    .cabana-carousel-slide img {
+        height: 500px;
+    }
+
+    .cabana-info {
+        grid-column: 2 / 3;
+    }
+
+    .cabana-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .cabana-amenidades-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cabana-details-section {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-xl);
+    }
+}
+
