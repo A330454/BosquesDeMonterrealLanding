@@ -53,24 +53,60 @@ const MobileMenu = {
 
         if (!this.toggle || !this.menu) return;
 
-        // Use both click and touchend for better mobile support
+        // Track if we handled touch to prevent double-firing
+        let touchHandled = false;
+
+        // Handle touch for mobile devices
+        this.toggle.addEventListener('touchstart', (e) => {
+            touchHandled = true;
+        }, { passive: true });
+
+        this.toggle.addEventListener('touchend', (e) => {
+            if (touchHandled) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggleMenu();
+                // Reset after a short delay
+                setTimeout(() => { touchHandled = false; }, 300);
+            }
+        }, { passive: false });
+
+        // Handle click for desktop and as fallback
         this.toggle.addEventListener('click', (e) => {
+            // Skip if this was already handled by touch
+            if (touchHandled) {
+                touchHandled = false;
+                return;
+            }
             e.preventDefault();
             e.stopPropagation();
             this.toggleMenu();
         });
 
-        // Touchend for iOS devices
-        this.toggle.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            this.toggleMenu();
-        }, { passive: false });
-
-        // Close menu when clicking a link
+        // Close menu when clicking a link - with proper mobile handling
         this.menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => this.closeMenu());
-            link.addEventListener('touchend', () => this.closeMenu());
+            // Use touchstart to track touch intent
+            let touchStarted = false;
+
+            link.addEventListener('touchstart', () => {
+                touchStarted = true;
+            }, { passive: true });
+
+            // Handle tap on mobile - allow navigation to happen first
+            link.addEventListener('touchend', (e) => {
+                if (!touchStarted) return;
+                touchStarted = false;
+
+                // Don't prevent default - let the link navigate naturally
+                // Close menu after a small delay to ensure navigation happens
+                setTimeout(() => this.closeMenu(), 100);
+            }, { passive: true });
+
+            // Handle click for desktop and as fallback
+            link.addEventListener('click', () => {
+                // Small delay to ensure navigation happens
+                setTimeout(() => this.closeMenu(), 50);
+            });
         });
 
         // Close menu when clicking outside

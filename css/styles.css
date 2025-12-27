@@ -1651,9 +1651,25 @@ a.cabana-card {
     .navbar-menu a {
         color: var(--color-black);
         font-size: 1.25rem;
-        padding: var(--space-md) 0;
+        padding: var(--space-lg) 0;
         display: block;
         -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        cursor: pointer;
+        min-height: 48px;
+        /* Ensure the entire area is clickable */
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-menu li {
+        width: 100%;
+        list-style: none;
+    }
+
+    /* Active state feedback for touch */
+    .navbar-menu a:active {
+        opacity: 0.7;
     }
 
     .navbar-toggle {
