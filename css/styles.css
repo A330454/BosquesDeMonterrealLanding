@@ -2820,6 +2820,9 @@ a.cabana-card {
     text-transform: uppercase;
     color: var(--color-text-primary);
     margin-bottom: var(--space-sm);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Override grid to single column */
@@ -2829,12 +2832,13 @@ a.cabana-card {
     gap: var(--space-lg);
     max-width: 800px;
     padding: 0;
+    margin: 0 auto;
 }
 
 /* Horizontal card layout - clickable */
 .cabanas-section .cabana-card {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 280px 1fr;
     border: 1px solid var(--color-gray-200);
     border-radius: var(--radius-md);
     background: var(--color-white);
@@ -2850,10 +2854,8 @@ a.cabana-card {
 }
 
 .cabanas-section .cabana-image {
-    flex: 0 0 280px;
-    width: 280px;
-    align-self: stretch;
-    border-radius: 0;
+    height: unset;
+    min-height: unset;
     overflow: hidden;
 }
 
@@ -2970,15 +2972,12 @@ a.cabana-card {
 /* Mobile: stack vertically */
 @media (max-width: 640px) {
     .cabanas-section .cabana-card {
-        flex-direction: column;
-        padding: 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: 200px auto;
     }
 
     .cabanas-section .cabana-image {
-        flex: none;
-        width: 100%;
-        height: 200px;
-        border-radius: 0;
+        min-height: 200px;
     }
 
     .cabanas-section .cabana-content {
