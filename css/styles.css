@@ -2710,3 +2710,278 @@ a.cabana-card {
     color: var(--color-text-muted);
     letter-spacing: 0.05em;
 }
+
+/* =========================================
+   BOOKING SEARCH SECTION - Cabañas Page
+   ========================================= */
+.booking-search-section {
+    padding: var(--space-xl) 0;
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.booking-search-title {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.booking-search-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.booking-search-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.booking-search-field label {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.booking-search-dates {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.booking-search-dates input[type="date"],
+.booking-search-field select {
+    flex: 1;
+    padding: 0.875rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--color-text-primary);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: border-color var(--transition-normal);
+}
+
+.booking-search-dates input[type="date"]:hover,
+.booking-search-dates input[type="date"]:focus,
+.booking-search-field select:hover,
+.booking-search-field select:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+.date-separator {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+}
+
+.booking-search-btn {
+    padding: 1rem 2rem;
+    font-size: 0.8125rem;
+}
+
+@media (min-width: 768px) {
+    .booking-search-form {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+    .booking-search-field {
+        flex: 1;
+    }
+
+    .booking-search-btn {
+        min-width: 140px;
+    }
+}
+
+/* =========================================
+   CABANAS SECTION - Updated Layout (Reference Style)
+   ========================================= */
+.cabanas-section {
+    padding: var(--space-xl) 0 var(--space-3xl);
+    background-color: var(--color-white);
+}
+
+.cabanas-section-title {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+/* Override grid to single column */
+.cabanas-section .cabanas-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    max-width: 800px;
+    padding: 0;
+}
+
+/* Horizontal card layout - clickable */
+.cabanas-section .cabana-card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.cabanas-section .cabana-card:hover {
+    border-color: var(--color-gray-300);
+    box-shadow: var(--shadow-sm);
+}
+
+.cabanas-section .cabana-image {
+    flex: 0 0 280px;
+    width: 280px;
+    align-self: stretch;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.cabanas-section .cabana-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.cabanas-section .cabana-card:hover .cabana-image img {
+    transform: scale(1.03);
+}
+
+.cabanas-section .cabana-badge {
+    display: none;
+}
+
+.cabanas-section .cabana-content {
+    flex: 1;
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cabanas-section .cabana-content h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: none;
+    margin-bottom: var(--space-sm);
+}
+
+.cabanas-section .cabana-capacity {
+    margin-bottom: var(--space-lg);
+    font-size: 0.875rem;
+}
+
+/* Cabin specs - multiple info items */
+.cabanas-section .cabana-specs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+}
+
+.cabanas-section .cabana-spec {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+.cabanas-section .cabana-spec svg {
+    flex-shrink: 0;
+    color: var(--color-text-muted);
+}
+
+.cabanas-section .cabana-features {
+    display: none;
+}
+
+.cabanas-section .cabana-description {
+    display: none;
+}
+
+.cabanas-section .cabana-upgrade {
+    display: none;
+}
+
+.cabanas-section .cabana-ver-mas {
+    margin-top: auto;
+    padding-top: 0;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    text-decoration: underline;
+    color: var(--color-text-primary);
+}
+
+.cabanas-section .cabana-card:hover .cabana-ver-mas {
+    color: var(--color-primary);
+}
+
+/* Card actions row */
+.cabanas-section .cabana-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-top: var(--space-md);
+}
+
+.cabanas-section .cabana-contact-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--color-text-primary);
+    background: transparent;
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.cabanas-section .cabana-contact-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 640px) {
+    .cabanas-section .cabana-card {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .cabanas-section .cabana-image {
+        flex: none;
+        width: 100%;
+        height: 200px;
+        border-radius: 0;
+    }
+
+    .cabanas-section .cabana-content {
+        padding: var(--space-md);
+    }
+}
