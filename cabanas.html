@@ -49,64 +49,6 @@
         <img src="images/d1e971a24749f3333ee830578a4fbedb-xxlarge.jpg" alt="Cabañas Bosques de Monterreal">
     </div>
 
-    <!-- Booking Search Section -->
-    <section class="booking-search-section">
-        <div class="container">
-            <h2 class="booking-search-title">Reserva tu Cabaña</h2>
-            <div class="booking-form-centered">
-                <div class="booking-field booking-field-calendar">
-                    <label for="check-dates">Check-in y check-out</label>
-                    <div class="booking-input-wrapper">
-                        <input type="text" id="check-dates" class="booking-input" placeholder="Selecciona fechas" readonly>
-                        <svg class="booking-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
-                    </div>
-                    <!-- Calendar Dropdown -->
-                    <div class="calendar-dropdown" id="calendarDropdown">
-                        <div class="calendar-selection" id="calendarSelection">Selecciona tu check-in</div>
-                        <div class="calendar-months">
-                            <div class="calendar-month">
-                                <div class="calendar-month-header">
-                                    <button class="calendar-nav-btn" id="calendarPrev" aria-label="Mes anterior">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <polyline points="15 18 9 12 15 6"></polyline>
-                                        </svg>
-                                    </button>
-                                    <span class="calendar-month-title" id="month1Title"></span>
-                                </div>
-                                <div class="calendar-weekdays">
-                                    <span>Dom</span><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
-                                </div>
-                                <div class="calendar-days" id="month1Days"></div>
-                            </div>
-                            <div class="calendar-month">
-                                <div class="calendar-month-header">
-                                    <span class="calendar-month-title" id="month2Title"></span>
-                                    <button class="calendar-nav-btn" id="calendarNext" aria-label="Mes siguiente">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <polyline points="9 18 15 12 9 6"></polyline>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div class="calendar-weekdays">
-                                    <span>Dom</span><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
-                                </div>
-                                <div class="calendar-days" id="month2Days"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button type="button" id="bookingSearchBtn" class="btn btn-primary booking-btn" style="display: none;">
-                    Buscar
-                </button>
-            </div>
-        </div>
-    </section>
-
     <!-- Cabañas Section -->
     <section class="cabanas-section">
         <div class="container">
@@ -118,7 +60,10 @@
                         <img src="https://static.wixstatic.com/media/917730_50db06cd59274778b2835d399b9152e7~mv2.jpg/v1/fill/w_512,h_342,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/917730_50db06cd59274778b2835d399b9152e7~mv2.jpg" alt="Cabaña Estudio" loading="lazy">
                     </div>
                     <div class="cabana-content">
-                        <h3>Estudio</h3>
+                        <div class="cabana-content-header">
+                            <h3>Estudio</h3>
+                            <span class="cabana-niveles">1 nivel</span>
+                        </div>
                         <div class="cabana-specs">
                             <div class="cabana-spec">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -160,7 +105,10 @@
                         <img src="https://static.wixstatic.com/media/917730_f5e98201feaf4f3a919dcb562d91b7b7~mv2_d_1840_1228_s_2.jpg/v1/fill/w_392,h_202,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/917730_f5e98201feaf4f3a919dcb562d91b7b7~mv2_d_1840_1228_s_2.jpg" alt="Cabaña 1 Dormitorio" loading="lazy">
                     </div>
                     <div class="cabana-content">
-                        <h3>Cabaña 1 Dormitorio</h3>
+                        <div class="cabana-content-header">
+                            <h3>Cabaña 1 Dormitorio</h3>
+                            <span class="cabana-niveles">2 niveles</span>
+                        </div>
                         <div class="cabana-specs">
                             <div class="cabana-spec">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -202,7 +150,10 @@
                         <img src="https://static.wixstatic.com/media/917730_8a9e75892edb4b999e973b1bf129c66b~mv2.jpg/v1/fill/w_392,h_202,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/917730_8a9e75892edb4b999e973b1bf129c66b~mv2.jpg" alt="Cabaña 2 Dormitorios" loading="lazy">
                     </div>
                     <div class="cabana-content">
-                        <h3>Cabaña 2 Dormitorios</h3>
+                        <div class="cabana-content-header">
+                            <h3>Cabaña 2 Dormitorios</h3>
+                            <span class="cabana-niveles">2 niveles</span>
+                        </div>
                         <div class="cabana-specs">
                             <div class="cabana-spec">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -244,7 +195,10 @@
                         <img src="https://static.wixstatic.com/media/917730_90fdb41ef6684ada9047b201f9d5d378~mv2.jpg/v1/fill/w_392,h_202,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/917730_90fdb41ef6684ada9047b201f9d5d378~mv2.jpg" alt="Cabaña 3 Dormitorios" loading="lazy">
                     </div>
                     <div class="cabana-content">
-                        <h3>Cabaña 3 Dormitorios</h3>
+                        <div class="cabana-content-header">
+                            <h3>Cabaña 3 Dormitorios</h3>
+                            <span class="cabana-niveles">2 niveles</span>
+                        </div>
                         <div class="cabana-specs">
                             <div class="cabana-spec">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -286,7 +240,10 @@
                         <img src="https://static.wixstatic.com/media/917730_f0a639e61e1c4c61b9386b7ecdccf5cf~mv2.jpg/v1/fill/w_392,h_202,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/917730_f0a639e61e1c4c61b9386b7ecdccf5cf~mv2.jpg" alt="Cabaña 4 Dormitorios" loading="lazy">
                     </div>
                     <div class="cabana-content">
-                        <h3>Cabaña 4 Dormitorios</h3>
+                        <div class="cabana-content-header">
+                            <h3>Cabaña 4 Dormitorios</h3>
+                            <span class="cabana-niveles">Espaciosa</span>
+                        </div>
                         <div class="cabana-specs">
                             <div class="cabana-spec">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -456,60 +413,7 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
-        // Booking search form handler
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('bookingSearchForm');
-            const checkInInput = document.getElementById('checkInDate');
-            const checkOutInput = document.getElementById('checkOutDate');
-
-            // Set minimum date to today
-            const today = new Date().toISOString().split('T')[0];
-            checkInInput.min = today;
-            checkOutInput.min = today;
-
-            // Set default dates (today and tomorrow)
-            const tomorrow = new Date();
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            checkInInput.value = today;
-            checkOutInput.value = tomorrow.toISOString().split('T')[0];
-
-            // Update check-out min when check-in changes
-            checkInInput.addEventListener('change', function() {
-                const checkInDate = new Date(this.value);
-                checkInDate.setDate(checkInDate.getDate() + 1);
-                checkOutInput.min = checkInDate.toISOString().split('T')[0];
-
-                // If checkout is before new min, update it
-                if (new Date(checkOutInput.value) <= new Date(this.value)) {
-                    checkOutInput.value = checkInDate.toISOString().split('T')[0];
-                }
-            });
-
-            // Form submission
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                const checkIn = checkInInput.value;
-                const checkOut = checkOutInput.value;
-                const guests = document.getElementById('guestsSelect').value;
-
-                // Build the booking URL
-                const baseUrl = 'https://direct-book.com/properties/bosquesdemonterrealdirect';
-                const params = new URLSearchParams({
-                    locale: 'es',
-                    currency: 'MXN',
-                    trackPage: 'yes',
-                    checkInDate: checkIn,
-                    checkOutDate: checkOut,
-                    'items[0][adults]': guests,
-                    'items[0][children]': '0',
-                    'items[0][infants]': '0'
-                });
-
-                // Redirect to booking page
-                window.open(`${baseUrl}?${params.toString()}`, '_blank');
-            });
-
             // Make entire cabin card clickable
             const cabanaCards = document.querySelectorAll('.cabanas-section .cabana-card');
             cabanaCards.forEach(card => {

@@ -643,16 +643,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .calendar-dropdown {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
+    position: fixed;
+    z-index: 10000;
     background-color: var(--color-white);
     border: 1px solid var(--color-gray-200);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
     padding: var(--space-md);
-    margin-top: var(--space-xs);
     min-width: 320px;
 }
 
@@ -806,6 +803,86 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 10px;
     white-space: nowrap;
     z-index: 10;
+}
+
+/* Close button - hidden by default on desktop */
+.calendar-close-btn {
+    display: none;
+}
+
+/* Mobile: Calendar as full-screen modal */
+@media (max-width: 767px) {
+    .calendar-dropdown {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: none;
+        margin: 0;
+        border-radius: 0;
+        border: none;
+        min-width: auto;
+        max-height: 100vh;
+        max-height: 100dvh;
+        overflow-y: auto;
+        padding: var(--space-lg) var(--space-md);
+        padding-top: var(--space-xl);
+        display: none;
+        flex-direction: column;
+    }
+
+    .calendar-dropdown.active {
+        display: flex;
+    }
+
+    /* Close button for mobile */
+    .calendar-close-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: var(--space-md);
+        right: var(--space-md);
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: none;
+        color: var(--color-text-muted);
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .calendar-close-btn:hover {
+        color: var(--color-text-primary);
+    }
+
+    .calendar-selection {
+        font-size: 0.875rem;
+        text-align: center;
+        background-color: var(--color-gray-100);
+        padding: var(--space-sm) var(--space-md);
+        border-radius: var(--radius-sm);
+        margin-bottom: var(--space-md);
+        border-bottom: none;
+    }
+
+    .calendar-months {
+        flex: 1;
+        gap: var(--space-lg);
+    }
+
+    .calendar-month-title {
+        font-size: 1rem;
+    }
+
+    .calendar-weekdays span {
+        font-size: 0.75rem;
+    }
+
+    .calendar-day {
+        font-size: 0.9375rem;
+    }
 }
 
 /* Desktop: Two months side by side */
@@ -2388,14 +2465,13 @@ a.cabana-card {
         right: 0;
         bottom: 0;
         flex-direction: column;
-        justify-content: flex-start;
-        padding: var(--space-xl);
+        justify-content: center;
+        gap: 0;
+        padding: var(--space-md);
         background-color: var(--color-white);
         transform: translateX(100%);
         transition: transform var(--transition-normal);
         z-index: 9999;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
     }
 
     .navbar-menu.active {
@@ -2405,14 +2481,16 @@ a.cabana-card {
 
     .navbar-menu a {
         color: var(--color-black);
-        font-size: 1.25rem;
-        padding: var(--space-lg) 0;
+        font-size: 1.125rem;
+        padding: var(--space-sm) 0;
         display: block;
         -webkit-tap-highlight-color: transparent;
         touch-action: manipulation;
         cursor: pointer;
-        min-height: 48px;
-        /* Ensure the entire area is clickable */
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         text-align: center;
     }
@@ -2895,7 +2973,32 @@ a.cabana-card {
     padding: var(--space-lg);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+}
+
+.cabanas-section .cabana-content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+}
+
+.cabanas-section .cabana-content-header h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: none;
+    margin-bottom: 0;
+}
+
+.cabanas-section .cabana-niveles {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    background-color: rgba(91, 143, 217, 0.12);
+    padding: 0.25rem 0.625rem;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
 }
 
 .cabanas-section .cabana-content h3 {
@@ -2963,8 +3066,9 @@ a.cabana-card {
 .cabanas-section .cabana-actions {
     display: flex;
     align-items: center;
-    gap: var(--space-lg);
-    margin-top: var(--space-md);
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: var(--space-md);
 }
 
 .cabanas-section .cabana-contact-btn {
