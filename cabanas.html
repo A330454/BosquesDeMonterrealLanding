@@ -10,7 +10,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
@@ -53,30 +53,57 @@
     <section class="booking-search-section">
         <div class="container">
             <h2 class="booking-search-title">Reserva tu Cabaña</h2>
-            <form class="booking-search-form" id="bookingSearchForm">
-                <div class="booking-search-field">
-                    <label for="checkInDate">Check-in y Check-out</label>
-                    <div class="booking-search-dates">
-                        <input type="date" id="checkInDate" required>
-                        <span class="date-separator">-</span>
-                        <input type="date" id="checkOutDate" required>
+            <div class="booking-form-centered">
+                <div class="booking-field booking-field-calendar">
+                    <label for="check-dates">Check-in y check-out</label>
+                    <div class="booking-input-wrapper">
+                        <input type="text" id="check-dates" class="booking-input" placeholder="Selecciona fechas" readonly>
+                        <svg class="booking-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <!-- Calendar Dropdown -->
+                    <div class="calendar-dropdown" id="calendarDropdown">
+                        <div class="calendar-selection" id="calendarSelection">Selecciona tu check-in</div>
+                        <div class="calendar-months">
+                            <div class="calendar-month">
+                                <div class="calendar-month-header">
+                                    <button class="calendar-nav-btn" id="calendarPrev" aria-label="Mes anterior">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="15 18 9 12 15 6"></polyline>
+                                        </svg>
+                                    </button>
+                                    <span class="calendar-month-title" id="month1Title"></span>
+                                </div>
+                                <div class="calendar-weekdays">
+                                    <span>Dom</span><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
+                                </div>
+                                <div class="calendar-days" id="month1Days"></div>
+                            </div>
+                            <div class="calendar-month">
+                                <div class="calendar-month-header">
+                                    <span class="calendar-month-title" id="month2Title"></span>
+                                    <button class="calendar-nav-btn" id="calendarNext" aria-label="Mes siguiente">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="9 18 15 12 9 6"></polyline>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="calendar-weekdays">
+                                    <span>Dom</span><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
+                                </div>
+                                <div class="calendar-days" id="month2Days"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="booking-search-field">
-                    <label for="guestsSelect">Huéspedes</label>
-                    <select id="guestsSelect">
-                        <option value="1">1 adulto</option>
-                        <option value="2" selected>2 adultos</option>
-                        <option value="3">3 adultos</option>
-                        <option value="4">4 adultos</option>
-                        <option value="5">5 adultos</option>
-                        <option value="6">6 adultos</option>
-                        <option value="7">7 adultos</option>
-                        <option value="8">8+ adultos</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary booking-search-btn">Buscar</button>
-            </form>
+                <button type="button" id="bookingSearchBtn" class="btn btn-primary booking-btn" style="display: none;">
+                    Buscar
+                </button>
+            </div>
         </div>
     </section>
 
