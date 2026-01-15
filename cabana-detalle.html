@@ -11,6 +11,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <!-- Critical CSS: Mobile menu pre-load to prevent FOUC -->
+    <style>
+        @media (max-width: 768px) {
+            .navbar-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #fff;
+                transform: translateX(100%);
+                visibility: hidden;
+                z-index: 9999;
+                will-change: transform;
+                transition: transform 0.3s ease, visibility 0s linear 0.3s;
+            }
+            .navbar-menu.active {
+                transform: translateX(0);
+                visibility: visible;
+                transition: transform 0.3s ease, visibility 0s linear 0s;
+            }
+        }
+    </style>
+
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/cabana-detalle.css">
