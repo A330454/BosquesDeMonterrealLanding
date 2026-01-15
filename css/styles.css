@@ -240,7 +240,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar.scrolled .navbar-logo,
 .navbar.scrolled .navbar-menu a {
     color: var(--color-text-primary);
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .navbar.scrolled .navbar-menu a:hover {
@@ -250,7 +250,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: 100%;
     max-width: var(--container-max);
     margin: 0 auto;
@@ -258,25 +258,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-logo {
-    font-family: var(--font-display);
-    font-size: 0.875rem;
-    font-weight: 300;
-    letter-spacing: 0.3em;
-    color: var(--color-white);
-    transition: color var(--transition-normal);
-    text-transform: uppercase;
+    display: none;
 }
 
 .navbar-menu {
     display: flex;
     align-items: center;
-    gap: var(--space-lg);
+    gap: var(--space-xl);
 }
 
 .navbar-menu a {
-    font-size: 0.6875rem;
-    font-weight: 300;
-    letter-spacing: 0.15em;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--color-white);
     position: relative;
@@ -304,8 +298,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-cta {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.625rem;
+    display: none;
 }
 
 .navbar-toggle {
@@ -342,7 +335,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar.navbar-dark .navbar-logo,
 .navbar.navbar-dark .navbar-menu a {
     color: var(--color-text-primary);
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .navbar.navbar-dark .navbar-menu a:hover {
@@ -564,7 +557,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .booking-field label {
-    font-size: 0.75rem;
+    font-size: 1.125rem;
     font-weight: 400;
     color: #FFFFFF;
     letter-spacing: 0.05em;
@@ -1609,7 +1602,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =========================================
-   WHATSAPP BUTTON - Subtle
+   WHATSAPP BUTTON - Green (always visible)
    ========================================= */
 .whatsapp-button {
     position: fixed;
@@ -2347,6 +2340,10 @@ a.cabana-card {
         --navbar-height: 70px;
     }
 
+    .navbar-container {
+        justify-content: flex-end;
+    }
+
     .navbar-menu {
         position: fixed;
         top: var(--navbar-height);
@@ -2535,4 +2532,181 @@ a.cabana-card {
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* =========================================
+   MAPA BANNER - Full width banner
+   ========================================= */
+.mapa-banner {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    margin-top: var(--navbar-height);
+}
+
+.mapa-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (min-width: 768px) {
+    .mapa-banner {
+        height: 380px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .mapa-banner {
+        height: 450px;
+    }
+}
+
+/* =========================================
+   CONTACTO NUEVO - Clean Layout
+   ========================================= */
+.contacto-nuevo {
+    padding: var(--space-2xl) 0 var(--space-3xl);
+    background-color: var(--color-white);
+}
+
+.contacto-nuevo-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--space-xl);
+}
+
+.contacto-nuevo-header h1 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+}
+
+.contacto-linea {
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-gray-300);
+    margin: 0 auto var(--space-md);
+}
+
+.contacto-nuevo-header p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+}
+
+.contacto-social {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.contacto-social a {
+    color: var(--color-text-primary);
+    transition: color var(--transition-normal);
+}
+
+.contacto-social a:hover {
+    color: var(--color-primary);
+}
+
+.contacto-subtitulo {
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: var(--space-xl);
+}
+
+.contacto-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    max-width: 800px;
+    margin: 0 auto var(--space-2xl);
+}
+
+.contacto-info-item {
+    text-align: center;
+}
+
+.contacto-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    margin: 0 auto var(--space-sm);
+}
+
+.contacto-info-item h4 {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.contacto-info-item p {
+    font-size: 0.9375rem;
+    font-weight: 300;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+}
+
+.contacto-info-item a {
+    color: var(--color-text-secondary);
+    transition: color var(--transition-normal);
+}
+
+.contacto-info-item a:hover {
+    color: var(--color-primary);
+}
+
+.contacto-mapa {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .contacto-info-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+}
+
+@media (min-width: 1024px) {
+    .contacto-info-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* =========================================
+   FOOTER SIMPLE - Minimal
+   ========================================= */
+.footer-simple {
+    padding: var(--space-lg) 0;
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-gray-200);
+    text-align: center;
+}
+
+.footer-simple p {
+    font-size: 0.8125rem;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
 }
