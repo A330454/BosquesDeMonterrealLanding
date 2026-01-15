@@ -7,7 +7,7 @@
     <meta name="description" content="Bosques de Monterreal - Cabañas en la Sierra de Arteaga, Coahuila. Ski, Golf, Spa y aventura en un resort 5 estrellas a 2,900 msnm.">
     <meta name="keywords" content="cabañas, monterreal, sierra de arteaga, coahuila, ski, golf, spa, resort, lujo">
 
-    <title>Bosques de Monterreal | Cabañas en Sierra de Arteaga</title>
+    <title>Monterreal | Resort de Montaña</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,42 +42,71 @@
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
 
-            <a href="https://direct-book.com/properties/bosquesdemonterrealdirect" target="_blank" rel="noopener" class="btn btn-primary navbar-cta">RESERVAR</a>
+            <a href="https://direct-book.com/properties/bosquesdemonterrealdirect" target="_blank" rel="noopener" class="btn btn-primary navbar-cta">Reservar</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero" id="hero">
+    <header class="hero hero-with-booking" id="hero">
         <div class="hero-bg">
-            <video autoplay muted loop playsinline class="hero-video">
-                <source src="https://video.wixstatic.com/video/917730_aa4e91109ebf4abb9eb428ecbbffe4c6/1080p/mp4/file.mp4" type="video/mp4">
-            </video>
+            <img src="images/B0005873.jpg" alt="Monterreal" class="hero-image">
         </div>
-        <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <span class="hero-location">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                Sierra de Arteaga, Coahuila
-            </span>
+            <h1 class="hero-title">Monterreal</h1>
+            <p class="hero-subtitle">La vida como debe ser.</p>
 
-            <h1 class="hero-title">Bosques de Monterreal</h1>
-
-            <p class="hero-subtitle">Resort &bull; Ski &bull; Golf &bull; Spa</p>
-
-            <div class="hero-buttons">
-                <a href="https://direct-book.com/properties/bosquesdemonterrealdirect" target="_blank" rel="noopener" class="btn btn-white">RESERVAR AHORA</a>
-                <a href="#experiencias" class="btn btn-outline-white">EXPLORAR</a>
-            </div>
-        </div>
-
-        <div class="hero-scroll">
-            <span>Descubre más</span>
-            <div class="scroll-indicator">
-                <div class="scroll-dot"></div>
+            <!-- Booking Form - Floating -->
+            <div class="booking-form-floating">
+                <div class="booking-field booking-field-calendar">
+                    <label for="check-dates">Check-in y check-out</label>
+                    <div class="booking-input-wrapper">
+                        <input type="text" id="check-dates" class="booking-input" placeholder="Selecciona fechas" readonly>
+                        <svg class="booking-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <!-- Calendar Dropdown -->
+                    <div class="calendar-dropdown" id="calendarDropdown">
+                        <div class="calendar-selection" id="calendarSelection">Selecciona tu check-in</div>
+                        <div class="calendar-months">
+                            <div class="calendar-month">
+                                <div class="calendar-month-header">
+                                    <button class="calendar-nav-btn" id="calendarPrev" aria-label="Mes anterior">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="15 18 9 12 15 6"></polyline>
+                                        </svg>
+                                    </button>
+                                    <span class="calendar-month-title" id="month1Title"></span>
+                                </div>
+                                <div class="calendar-weekdays">
+                                    <span>Dom</span><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
+                                </div>
+                                <div class="calendar-days" id="month1Days"></div>
+                            </div>
+                            <div class="calendar-month">
+                                <div class="calendar-month-header">
+                                    <span class="calendar-month-title" id="month2Title"></span>
+                                    <button class="calendar-nav-btn" id="calendarNext" aria-label="Mes siguiente">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="9 18 15 12 9 6"></polyline>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="calendar-weekdays">
+                                    <span>Dom</span><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
+                                </div>
+                                <div class="calendar-days" id="month2Days"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" id="bookingSearchBtn" class="btn btn-primary booking-btn">
+                    Buscar
+                </button>
             </div>
         </div>
     </header>
@@ -86,18 +115,11 @@
     <section class="intro" id="intro">
         <div class="container">
             <div class="intro-content">
-                <h2 class="section-title">El corazón de la Sierra de Arteaga</h2>
+                <h2 class="section-title">Un refugio en la montaña</h2>
                 <p class="intro-text">
-                    Rodeado de hermosos bosques a solo 45 minutos de Saltillo, Bosques de Monterreal
-                    es el desarrollo turístico de montaña más grande de México. Con casi 1,200 hectáreas,
-                    aquí puedes practicar ski y snowboard los 365 días del año, disfrutar del campo de
-                    golf más alto del país, realizar cabalgatas, rentar cuatrimotos, aventurarte en
-                    tirolesa y rappel, o simplemente contemplar las espectaculares puestas de sol.
-                </p>
-                <p class="intro-text" style="margin-top: 1rem;">
-                    Te invitamos a conocer este increíble centro vacacional, disfrutando de confortables
-                    cabañas estilo suizo magníficamente acondicionadas, en total contacto con la naturaleza.
-                    En invierno, admira los paisajes nevados dignos de los Alpes Suizos.
+                    A 2,900 metros de altura, rodeado de bosques de pino y encino,
+                    Monterreal ofrece un escape del ritmo cotidiano. Un lugar donde
+                    el tiempo se detiene y la naturaleza se convierte en protagonista.
                 </p>
             </div>
         </div>
@@ -106,8 +128,8 @@
     <!-- Experiencias Section -->
     <section class="experiencias" id="experiencias">
         <div class="container">
-            <h2 class="section-title text-center">Experiencias Únicas</h2>
-            <p class="section-subtitle text-center">Descubre todo lo que Monterreal tiene para ti</p>
+            <h2 class="section-title text-center">Experiencias</h2>
+            <p class="section-subtitle text-center">Diseñadas para el descanso y la aventura</p>
 
             <div class="experiencias-carousel-container">
                 <button class="experiencias-nav-btn experiencias-nav-prev" aria-label="Anterior">
@@ -264,11 +286,10 @@
         <div class="container">
             <div class="actividades-wrapper">
                 <div class="actividades-content">
-                    <h2 class="section-title text-white">Actividades para toda la familia</h2>
+                    <h2 class="section-title">Actividades</h2>
                     <p class="actividades-text">
-                        Por alcanzar los más altos estándares de calidad, la Secretaría de Turismo
-                        nos otorga la categoría cinco estrellas. Para que tú y tu familia disfruten
-                        al máximo la experiencia Monterreal con actividades para todos los gustos y edades.
+                        Desde aventuras al aire libre hasta momentos de relajación.
+                        Cada día en Monterreal puede ser tan activo o tranquilo como desees.
                     </p>
 
                     <div class="actividades-tags">
@@ -277,16 +298,13 @@
                         <span class="tag">Tirolesa</span>
                         <span class="tag">Rappel</span>
                         <span class="tag">Caminatas</span>
-                        <span class="tag">Tenis</span>
-                        <span class="tag">Alberca Climatizada</span>
-                        <span class="tag">Snowboard</span>
+                        <span class="tag">Ski</span>
+                        <span class="tag">Golf</span>
+                        <span class="tag">Spa</span>
                     </div>
 
-                    <a href="actividades.html" class="btn btn-white">
-                        VER TODAS
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
+                    <a href="actividades.html" class="btn btn-primary">
+                        Descubrir
                     </a>
                 </div>
 
@@ -303,38 +321,34 @@
             <div class="highlights-grid">
                 <div class="highlight-card">
                     <div class="highlight-icon">⛳</div>
-                    <h3>Campo de Golf</h3>
+                    <h3>Golf</h3>
                     <div class="highlight-stats">
                         <div class="stat">
                             <span class="stat-number">9</span>
                             <span class="stat-label">Hoyos</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">68</span>
-                            <span class="stat-label">Par</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">15</span>
-                            <span class="stat-label">Hectáreas</span>
+                            <span class="stat-number">2,900</span>
+                            <span class="stat-label">msnm</span>
                         </div>
                     </div>
-                    <p>El campo de golf más alto de México a 2,900 msnm, con 15 hectáreas de extensión y lago artificial.</p>
+                    <p>El campo de golf más alto de México, rodeado de bosques de pino.</p>
                 </div>
 
                 <div class="highlight-card">
                     <div class="highlight-icon">⛷️</div>
-                    <h3>Pista de Ski</h3>
+                    <h3>Ski</h3>
                     <div class="highlight-stats">
                         <div class="stat">
                             <span class="stat-number">365</span>
-                            <span class="stat-label">Días/año</span>
+                            <span class="stat-label">Días</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">2</span>
                             <span class="stat-label">Pistas</span>
                         </div>
                     </div>
-                    <p>Ski y snowboard todo el año con nieve artificial. Clases para principiantes incluidas.</p>
+                    <p>Ski y snowboard disponibles todo el año.</p>
                 </div>
             </div>
         </div>
@@ -345,40 +359,23 @@
         <div class="container">
             <div class="restaurante-wrapper">
                 <div class="restaurante-image">
-                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="La Casa Club de Ski Restaurante" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Restaurante" loading="lazy">
                 </div>
                 <div class="restaurante-content">
                     <span class="badge">Gastronomía</span>
-                    <h2 class="section-title">La Casa Club de Ski</h2>
+                    <h2 class="section-title">Casa Club</h2>
                     <p>
-                        Después de un día de actividades, saborea los exquisitos platillos locales
-                        en nuestro restaurante. Un ambiente cálido y acogedor con vistas panorámicas
-                        al bosque, perfecto para compartir en familia.
+                        Un espacio donde la cocina local se encuentra con vistas panorámicas al bosque.
+                        Diseñado para disfrutar con calma cada momento del día.
                     </p>
                     <div class="restaurante-features">
                         <div class="feature">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                                <path d="M2 17l10 5 10-5"></path>
-                                <path d="M2 12l10 5 10-5"></path>
-                            </svg>
-                            <span>Cocina Gourmet</span>
+                            <span>Cocina Local</span>
                         </div>
                         <div class="feature">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
-                                <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
-                                <line x1="6" y1="2" x2="6" y2="4"></line>
-                                <line x1="10" y1="2" x2="10" y2="4"></line>
-                                <line x1="14" y1="2" x2="14" y2="4"></line>
-                            </svg>
                             <span>Vinos Selectos</span>
                         </div>
                         <div class="feature">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 16 14"></polyline>
-                            </svg>
                             <span>Desayuno a Cena</span>
                         </div>
                     </div>
@@ -388,25 +385,26 @@
     </section>
 
     <!-- Ubicación Section -->
-    <section class="ubicacion" id="ubicacion">
-        <div class="container">
-            <div class="ubicacion-header">
-                <h2 class="section-title text-center">Encuéntranos</h2>
-                <p class="section-subtitle text-center">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Sierra de Arteaga, Coahuila &bull; 45 min de Saltillo &bull; 2,900 msnm
-                </p>
-            </div>
+    <section class="ubicacion-new" id="ubicacion">
+        <!-- Full-width image -->
+        <div class="ubicacion-image">
+            <img src="images/B0005859.jpg" alt="Vista Monterreal" loading="lazy">
+        </div>
+
+        <!-- Content with title and line -->
+        <div class="ubicacion-content">
+            <h2 class="ubicacion-title">Encuéntranos</h2>
+            <div class="ubicacion-line"></div>
+            <p class="ubicacion-subtitle">
+                Sierra de Arteaga, Coahuila. A solo 45 minutos de Saltillo.
+            </p>
 
             <div class="mapa-container">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.0234567890123!2d-100.4361215!3d25.2322012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868811d6400f3ed1%3A0x6d9ad1ac13fdc03f!2sBosques%20de%20Monterreal!5e0!3m2!1ses!2smx!4v1735334400000!5m2!1ses!2smx"
                     width="100%"
-                    height="450"
-                    style="border:0; border-radius: 16px;"
+                    height="400"
+                    style="border:0;"
                     allowfullscreen=""
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
@@ -419,10 +417,10 @@
     <section class="cta">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title">¿Listo para tu escapada?</h2>
-                <p class="cta-text">Reserva ahora y vive la experiencia Monterreal</p>
+                <h2 class="cta-title">Tu escape espera</h2>
+                <p class="cta-text">Reserva tu estancia y descubre la tranquilidad de la montaña</p>
                 <a href="https://direct-book.com/properties/bosquesdemonterrealdirect" target="_blank" rel="noopener" class="btn btn-primary btn-large">
-                    RESERVAR AHORA
+                    Reservar
                 </a>
             </div>
         </div>
@@ -432,13 +430,8 @@
     <section class="aviso">
         <div class="container">
             <div class="aviso-content">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-                    <line x1="12" y1="9" x2="12" y2="13"></line>
-                    <circle cx="12" cy="17" r="1" fill="currentColor"></circle>
-                </svg>
                 <div>
-                    <strong>Aviso Importante:</strong> Para evitar fraudes, realiza tus reservaciones únicamente a través de nuestros canales oficiales o directamente en nuestra página de reservas autorizada.
+                    Realiza tus reservaciones únicamente a través de nuestros canales oficiales.
                 </div>
             </div>
         </div>
@@ -449,7 +442,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="images/logo.png" alt="Monterreal" class="footer-logo">
+                    <a href="index.html" class="footer-logo-text">MONTERREAL</a>
                     <p class="footer-address">
                         Carretera San Antonio De Las Alazanas<br>
                         Mesa de las Tablas KM 32<br>
