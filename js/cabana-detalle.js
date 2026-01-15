@@ -202,12 +202,12 @@ function renderCabanaDetail(cabana) {
 
 /**
  * Initialize carousel functionality
+ * Fade-based carousel - shows one image at a time
  */
 function initCarousel() {
     const carousel = document.querySelector('.cabana-carousel');
     if (!carousel || carousel.dataset.singleImage === 'true') return;
 
-    const track = carousel.querySelector('.cabana-carousel-track');
     const slides = carousel.querySelectorAll('.cabana-carousel-slide');
     const prevBtn = carousel.querySelector('.cabana-carousel-btn-prev');
     const nextBtn = carousel.querySelector('.cabana-carousel-btn-next');
@@ -216,33 +216,37 @@ function initCarousel() {
     let currentIndex = 0;
     const totalSlides = slides.length;
 
-    function updateCarousel() {
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-        // Update indicators
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === currentIndex);
-        });
-    }
+    // Set first slide as active
+    slides[0].classList.add('active');
 
     function goToSlide(index) {
-        currentIndex = (index + totalSlides) % totalSlides;
-        updateCarousel();
+        // Remove active from current
+        slides[currentIndex].classList.remove('active');
+        indicators[currentIndex].classList.remove('active');
+
+        // Update index
+        currentIndex = index;
+
+        // Add active to new
+        slides[currentIndex].classList.add('active');
+        indicators[currentIndex].classList.add('active');
     }
 
     function nextSlide() {
-        goToSlide(currentIndex + 1);
+        const newIndex = currentIndex < totalSlides - 1 ? currentIndex + 1 : 0;
+        goToSlide(newIndex);
     }
 
     function prevSlide() {
-        goToSlide(currentIndex - 1);
+        const newIndex = currentIndex > 0 ? currentIndex - 1 : totalSlides - 1;
+        goToSlide(newIndex);
     }
 
-    // Button event listeners
-    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    // Button clicks
+    prevBtn?.addEventListener('click', prevSlide);
+    nextBtn?.addEventListener('click', nextSlide);
 
-    // Indicator event listeners
+    // Indicator clicks
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => goToSlide(index));
     });
@@ -252,31 +256,5 @@ function initCarousel() {
         if (e.key === 'ArrowLeft') prevSlide();
         if (e.key === 'ArrowRight') nextSlide();
     });
-
-    // Touch/swipe support
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    carousel.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    carousel.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    }, { passive: true });
-
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
-
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                nextSlide();
-            } else {
-                prevSlide();
-            }
-        }
-    }
 }
 
