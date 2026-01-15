@@ -2721,7 +2721,6 @@ a.cabana-card {
 .footer-simple {
     padding: var(--space-lg) 0;
     background-color: var(--color-white);
-    border-top: 1px solid var(--color-gray-200);
     text-align: center;
 }
 
