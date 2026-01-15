@@ -198,8 +198,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-large {
-    padding: 1.25rem 3.5rem;
+    padding: 1rem 2rem;
     font-size: 0.8125rem;
+}
+
+@media (min-width: 768px) {
+    .btn-large {
+        padding: 1.25rem 3.5rem;
+    }
 }
 
 /* Badge - Subtle, Elegant */
@@ -517,10 +523,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-with-booking .hero-title {
-    font-size: clamp(3rem, 10vw, 6rem);
+    font-size: clamp(2rem, 8vw, 6rem);
     margin-bottom: var(--space-sm);
     font-weight: 300;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.15em;
 }
 
 .hero-with-booking .hero-subtitle {
@@ -949,9 +955,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .intro-title {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 2rem;
+    font-size: clamp(1.25rem, 4vw, 2rem);
     font-weight: 400;
-    letter-spacing: 0.3em;
+    letter-spacing: clamp(0.15em, 2vw, 0.3em);
     text-transform: uppercase;
     color: #2c3e50;
     margin-bottom: var(--space-md);
@@ -1012,9 +1018,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .experiencias-title {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 2rem;
+    font-size: clamp(1.25rem, 4vw, 2rem);
     font-weight: 400;
-    letter-spacing: 0.3em;
+    letter-spacing: clamp(0.15em, 2vw, 0.3em);
     color: #2c3e50;
     margin: 0;
     text-transform: uppercase;
@@ -1064,9 +1070,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .actividades-servicios-title {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 2rem;
+    font-size: clamp(1.25rem, 4vw, 2rem);
     font-weight: 400;
-    letter-spacing: 0.3em;
+    letter-spacing: clamp(0.15em, 2vw, 0.3em);
     color: #2c3e50;
     margin: 0;
     text-transform: uppercase;
@@ -1121,11 +1127,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
-    .actividades-servicios-title {
-        font-size: 1.5rem;
-        letter-spacing: 0.2em;
-    }
-
     .servicios-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-lg);
@@ -1136,7 +1137,9 @@ h1, h2, h3, h4, h5, h6 {
     .servicios-grid {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
-        max-width: 280px;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -2432,15 +2435,6 @@ a.cabana-card {
         display: none;
     }
 
-    .hero-title {
-        font-size: clamp(2.5rem, 10vw, 4rem);
-    }
-
-    .experiencias-title {
-        font-size: 1.5rem;
-        letter-spacing: 0.2em;
-    }
-
     .experiencias-list li {
         font-size: 1rem;
     }
@@ -2602,7 +2596,7 @@ a.cabana-card {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 400;
-    letter-spacing: 0.3em;
+    letter-spacing: clamp(0.15em, 2vw, 0.3em);
     text-transform: uppercase;
     color: #2c3e50;
     margin-bottom: var(--space-md);
@@ -2743,9 +2737,9 @@ a.cabana-card {
 
 .booking-search-title {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-size: clamp(1.25rem, 3vw, 2rem);
     font-weight: 400;
-    letter-spacing: 0.3em;
+    letter-spacing: clamp(0.15em, 2vw, 0.3em);
     text-transform: uppercase;
     color: #2c3e50;
     text-align: center;
