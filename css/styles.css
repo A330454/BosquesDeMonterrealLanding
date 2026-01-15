@@ -2562,6 +2562,7 @@ a.cabana-card {
     height: 280px;
     overflow: hidden;
     margin-top: var(--navbar-height);
+    background-color: var(--color-white);
 }
 
 .mapa-banner img {

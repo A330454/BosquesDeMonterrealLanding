@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     SmoothScroll.init();
     RevealOnScroll.init();
     MobileMenu.init();
-    ExperienciasCarousel.init();
     DatePicker.init();
 });
 
@@ -584,81 +583,6 @@ const SmoothScroll = {
                 }
             });
         });
-    }
-};
-
-/**
- * Experiencias Carousel Module
- * Handles carousel navigation for experiencias section
- */
-const ExperienciasCarousel = {
-    currentPage: 0,
-    cardsPerView: 4,
-    totalCards: 0,
-    grid: null,
-    prevBtn: null,
-    nextBtn: null,
-
-    init() {
-        this.grid = document.querySelector('.experiencias-grid');
-        this.prevBtn = document.querySelector('.experiencias-nav-prev');
-        this.nextBtn = document.querySelector('.experiencias-nav-next');
-
-        if (!this.grid || !this.prevBtn || !this.nextBtn) return;
-
-        this.totalCards = this.grid.querySelectorAll('.experiencia-card').length;
-
-        // Set cards per view based on screen size
-        this.updateCardsPerView();
-        window.addEventListener('resize', () => {
-            this.currentPage = 0;
-            this.updateCardsPerView();
-        });
-
-        // Add event listeners
-        this.prevBtn.addEventListener('click', () => this.navigate(-1));
-        this.nextBtn.addEventListener('click', () => this.navigate(1));
-
-        // Update button states
-        this.updateButtons();
-    },
-
-    updateCardsPerView() {
-        if (window.innerWidth <= 768) {
-            this.cardsPerView = 1;
-        } else if (window.innerWidth <= 1024) {
-            this.cardsPerView = 2;
-        } else {
-            this.cardsPerView = 4;
-        }
-        this.updateButtons();
-        this.updateCarousel();
-    },
-
-    navigate(direction) {
-        const totalPages = Math.ceil(this.totalCards / this.cardsPerView);
-        this.currentPage = Math.max(0, Math.min(totalPages - 1, this.currentPage + direction));
-        this.updateCarousel();
-        this.updateButtons();
-    },
-
-    updateCarousel() {
-        const cards = this.grid.querySelectorAll('.experiencia-card');
-        if (cards.length === 0) return;
-
-        const cardWidth = cards[0].offsetWidth;
-        const gap = 24; // var(--space-md) = 1.5rem = 24px
-
-        // Calculate offset: move by cardsPerView cards each page
-        const cardsToSkip = this.currentPage * this.cardsPerView;
-        const offset = -(cardsToSkip * (cardWidth + gap));
-        this.grid.style.transform = `translateX(${offset}px)`;
-    },
-
-    updateButtons() {
-        const totalPages = Math.ceil(this.totalCards / this.cardsPerView);
-        this.prevBtn.disabled = this.currentPage === 0;
-        this.nextBtn.disabled = this.currentPage >= totalPages - 1;
     }
 };
 
