@@ -439,7 +439,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-subtitle {
     font-size: clamp(0.75rem, 1.5vw, 0.875rem);
-    font-weight: 300;
+    font-weight: 600;
     letter-spacing: 0.3em;
     margin-bottom: var(--space-xl);
     opacity: 0.8;
@@ -935,7 +935,7 @@ h1, h2, h3, h4, h5, h6 {
    INTRO SECTION - Calm, Breathable
    ========================================= */
 .intro {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-xl) 0;
     background-color: var(--color-white);
 }
 
@@ -943,6 +943,24 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 650px;
     margin: 0 auto;
     text-align: center;
+}
+
+.intro-title {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+}
+
+.intro-line {
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: #2c3e50;
+    margin: 0 auto var(--space-lg);
 }
 
 .intro-text {
@@ -953,169 +971,178 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =========================================
-   EXPERIENCIAS SECTION - Elegant Grid
+   IMAGEN DESTACADA
    ========================================= */
-.experiencias {
-    padding: var(--space-3xl) 0;
-    background-color: var(--color-warm-white);
+.imagen-destacada {
+    padding: var(--space-lg) 0;
+    background-color: var(--color-white);
 }
 
-.experiencias-carousel-container {
-    position: relative;
-    margin-top: var(--space-xl);
-    padding: 0 60px;
-}
-
-.experiencias-carousel {
-    overflow: hidden;
-}
-
-.experiencias-grid {
-    display: flex;
-    gap: var(--space-sm);
-    transition: transform 0.8s ease;
-}
-
-.experiencias-grid .experiencia-card {
-    flex: 0 0 calc((100% - (3 * var(--space-sm))) / 4);
-    min-width: calc((100% - (3 * var(--space-sm))) / 4);
-}
-
-.experiencia-card {
-    position: relative;
-    height: 450px;
+.imagen-destacada img {
+    width: 550px;
+    max-width: 90%;
+    height: 300px;
+    margin: 0 auto;
     border-radius: var(--radius-md);
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.experiencia-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    transition: transform var(--transition-slow);
-}
-
-.experiencia-card:hover .experiencia-bg {
-    transform: scale(1.05);
-}
-
-.experiencia-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.6) 0%,
-        rgba(0, 0, 0, 0.1) 50%,
-        rgba(0, 0, 0, 0) 100%
-    );
-    transition: background var(--transition-slow);
-}
-
-.experiencia-card:hover .experiencia-overlay {
-    background: linear-gradient(
-        to top,
-        rgba(91, 143, 217, 0.7) 0%,
-        rgba(91, 143, 217, 0.2) 50%,
-        rgba(91, 143, 217, 0) 100%
-    );
-}
-
-.experiencia-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: var(--space-lg);
-    color: var(--color-white);
-    z-index: 1;
-}
-
-.experiencia-icon {
-    font-size: 1.75rem;
-    display: block;
-    margin-bottom: var(--space-sm);
-    opacity: 0.9;
-}
-
-.experiencia-content h3 {
-    font-size: 0.875rem;
-    margin-bottom: var(--space-xs);
-    color: var(--color-white);
-    letter-spacing: 0.1em;
-    font-weight: 400;
-}
-
-.experiencia-content p {
-    font-size: 0.75rem;
-    opacity: 0.8;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-}
-
-/* Carousel Navigation Buttons - Subtle */
-.experiencias-nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--color-white);
-    border: 1px solid var(--color-gray-200);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: none;
-    transition: all var(--transition-normal);
-    z-index: 10;
-}
-
-.experiencias-nav-btn:hover {
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
-}
-
-.experiencias-nav-btn:hover svg {
-    stroke: var(--color-white);
-}
-
-.experiencias-nav-btn svg {
-    stroke: var(--color-text-secondary);
-    transition: stroke var(--transition-normal);
-    width: 18px;
-    height: 18px;
-}
-
-.experiencias-nav-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-.experiencias-nav-btn:disabled:hover {
-    background-color: var(--color-white);
-    border-color: var(--color-gray-200);
-}
-
-.experiencias-nav-btn:disabled:hover svg {
-    stroke: var(--color-text-secondary);
-}
-
-.experiencias-nav-prev {
-    left: -24px;
-}
-
-.experiencias-nav-next {
-    right: -24px;
+    object-fit: cover;
 }
 
 /* =========================================
-   ACTIVIDADES SECTION - Elegant, Light
+   EXPERIENCIAS SECTION - Hotel Amenities Style
+   ========================================= */
+.experiencias {
+    padding: var(--space-xl) 0;
+    background-color: var(--color-white);
+}
+
+.experiencias-header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.experiencias-line {
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: #2c3e50;
+    margin: 0 auto var(--space-lg);
+}
+
+.experiencias-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    color: #2c3e50;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.experiencias-line-bottom {
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: #2c3e50;
+    margin: var(--space-lg) auto 0;
+}
+
+.experiencias-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.experiencias-list li {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #2c3e50;
+    line-height: 2.2;
+    letter-spacing: 0.05em;
+}
+
+.experiencias-list li a {
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color var(--transition-normal);
+}
+
+.experiencias-list li a:hover {
+    color: var(--color-primary);
+}
+
+/* =========================================
+   ACTIVIDADES SERVICIOS SECTION - Icon Style
+   ========================================= */
+.actividades-servicios {
+    padding: var(--space-xl) 0;
+    background-color: var(--color-white);
+}
+
+.actividades-servicios-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    color: #2c3e50;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.actividades-servicios-line {
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: #2c3e50;
+    margin: var(--space-md) auto var(--space-xl);
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.servicio-item {
+    text-align: center;
+}
+
+.servicio-icon {
+    margin-bottom: var(--space-md);
+    color: #2c3e50;
+}
+
+.servicio-icon svg {
+    display: inline-block;
+}
+
+.servicio-item h3 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: none;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.servicio-item p {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .actividades-servicios-title {
+        font-size: 1.5rem;
+        letter-spacing: 0.2em;
+    }
+
+    .servicios-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .servicios-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+        max-width: 280px;
+    }
+}
+
+/* =========================================
+   ACTIVIDADES SECTION - Elegant, Light (Legacy)
    ========================================= */
 .actividades-section {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-xl) 0;
     background-color: var(--color-white);
 }
 
@@ -1186,8 +1213,8 @@ h1, h2, h3, h4, h5, h6 {
    HIGHLIGHTS SECTION - Minimal, Elegant
    ========================================= */
 .highlights {
-    padding: var(--space-3xl) 0;
-    background-color: var(--color-warm-white);
+    padding: var(--space-xl) 0;
+    background-color: var(--color-white);
 }
 
 .highlights-grid {
@@ -1284,7 +1311,7 @@ h1, h2, h3, h4, h5, h6 {
    RESTAURANTE SECTION - Elegant, Clean
    ========================================= */
 .restaurante {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-xl) 0;
     background-color: var(--color-white);
 }
 
@@ -1318,6 +1345,28 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-lg);
+}
+
+/* Restaurante sin imagen - Centrado */
+.restaurante-sin-imagen {
+    text-align: center;
+}
+
+.restaurante-content-centered {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.restaurante-content-centered p {
+    font-size: 1rem;
+    line-height: 2;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-lg);
+    font-weight: 300;
+}
+
+.restaurante-content-centered .restaurante-features {
+    justify-content: center;
 }
 
 .feature {
@@ -1356,7 +1405,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ubicacion-content {
-    padding: var(--space-2xl) var(--space-md) var(--space-3xl);
+    padding: var(--space-xl) var(--space-md) var(--space-xl);
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
@@ -1420,7 +1469,7 @@ h1, h2, h3, h4, h5, h6 {
    CTA SECTION - Elegant, Calm
    ========================================= */
 .cta {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-xl) 0;
     background-color: var(--color-white);
 }
 
@@ -1449,7 +1498,7 @@ h1, h2, h3, h4, h5, h6 {
    ========================================= */
 .aviso {
     padding: var(--space-md) 0;
-    background-color: var(--color-warm-white);
+    background-color: var(--color-white);
     border-top: 1px solid var(--color-gray-200);
 }
 
@@ -2309,23 +2358,6 @@ a.cabana-card {
    RESPONSIVE
    ========================================= */
 @media (max-width: 1024px) {
-    .experiencias-carousel-container {
-        padding: 0 50px;
-    }
-
-    .experiencias-grid .experiencia-card {
-        flex: 0 0 calc((100% - var(--space-md)) / 2);
-        min-width: calc((100% - var(--space-md)) / 2);
-    }
-
-    .experiencias-nav-prev {
-        left: 0;
-    }
-
-    .experiencias-nav-next {
-        right: 0;
-    }
-
     .cabanas-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -2402,27 +2434,13 @@ a.cabana-card {
         font-size: clamp(2.5rem, 10vw, 4rem);
     }
 
-    .experiencias-carousel-container {
-        padding: 0 45px;
+    .experiencias-title {
+        font-size: 1.5rem;
+        letter-spacing: 0.2em;
     }
 
-    .experiencias-grid .experiencia-card {
-        flex: 0 0 100%;
-        min-width: 100%;
-        height: 300px;
-    }
-
-    .experiencias-nav-btn {
-        width: 40px;
-        height: 40px;
-    }
-
-    .experiencias-nav-prev {
-        left: 0;
-    }
-
-    .experiencias-nav-next {
-        right: 0;
+    .experiencias-list li {
+        font-size: 1rem;
     }
 
     .actividades-wrapper,
