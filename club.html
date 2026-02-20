@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club Monterreal - Propietarios & Miembros</title>
-    <meta name="description" content="Únete al Club Monterreal. Descubre los beneficios exclusivos para propietarios y miembros de nuestra comunidad de montaña.">
+    <title>Venta de Lotes y Cabañas | Bosques de Monterreal</title>
+    <meta name="description" content="Venta de lotes y cabañas en Bosques de Monterreal. Invierte en el desarrollo inmobiliario de montaña más exclusivo de México en la Sierra de Arteaga.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!-- Critical CSS: Mobile menu pre-load to prevent FOUC -->
     <style>
@@ -42,6 +42,9 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌲</text></svg>">
 </head>
 <body>
+    <!-- Site Alert Container (controlado desde Google Sheets) -->
+    <div id="siteAlertContainer"></div>
+
     <!-- Navbar -->
     <nav class="navbar navbar-dark" id="navbar">
         <div class="navbar-container">
@@ -57,9 +60,9 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="mapa.html">Mapa</a></li>
                 <li><a href="cabanas.html">Cabañas</a></li>
-                <!-- <li><a href="actividades.html">Actividades</a></li> -->
                 <li><a href="https://www.spaalpino.com/" target="_blank" rel="noopener">Spa</a></li>
                 <li><a href="club.html" class="active">Club Monterreal</a></li>
+                <li><a href="galeria.html">Galería</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
 
@@ -69,39 +72,47 @@
 
     <!-- Banner Image -->
     <div class="mapa-banner">
-        <img src="images/B0005884.jpg" alt="Club Monterreal">
+        <img src="images/B0005884.jpg" alt="Venta de Lotes y Cabañas Monterreal">
     </div>
 
     <!-- Intro Section -->
     <section class="intro" id="intro">
         <div class="container">
             <div class="intro-content">
-                <h3 class="intro-title">Exclusividad en la Montaña</h3>
+                <h3 class="intro-title">Inversión Inmobiliaria en la Montaña</h3>
                 <span class="intro-line"></span>
                 <p class="intro-text">
-                    Accede a un selecto círculo de propietarios en el destino de montaña más distinguido de México.
-                    Una comunidad que conjuga inversión inmobiliaria de alto valor con privilegios únicos
+                    Adquiere tu lote o cabaña en el desarrollo de montaña más exclusivo de México.
+                    Una oportunidad única de inversión inmobiliaria con plusvalía garantizada
                     en un entorno natural incomparable.
                 </p>
             </div>
         </div>
     </section>
 
+    <!-- CTA Button -->
+    <div class="container" style="text-align: center; padding-bottom: 3rem;">
+        <a href="mailto:memomartinez@monterreal.com?subject=Información%20Venta%20de%20Lotes%20y%20Cabañas%20Monterreal&body=Hola,%0D%0A%0D%0AEstoy%20interesado%20en%20invertir%20en%20Bosques%20de%20Monterreal%20y%20me%20gustaría%20obtener%20más%20información%20sobre:%0D%0A%0D%0A-%20Lotes%20disponibles%0D%0A-%20Cabañas%20en%20venta%0D%0A-%20Precios%20y%20planes%20de%20financiamiento%0D%0A-%20Agendar%20una%20visita%0D%0A%0D%0AQuedo%20atento%20a%20su%20respuesta.%0D%0A%0D%0ASaludos"
+           class="btn btn-primary btn-large">
+            Solicitar información
+        </a>
+    </div>
+
     <!-- Experiencias Section -->
     <section class="experiencias">
         <div class="container">
             <div class="experiencias-header">
-                <h2 class="experiencias-title">BENEFICIOS</h2>
+                <h2 class="experiencias-title">BENEFICIOS DE INVERTIR</h2>
                 <span class="experiencias-line-bottom"></span>
             </div>
 
             <ul class="experiencias-list">
-                <li>Golf con vista panorámica</li>
-                <li>Ski exclusivo en México</li>
-                <li>Tres décadas de prestigio</li>
+                <li>Plusvalía comprobada por más de 30 años</li>
+                <li>Acceso a campo de golf y pista de ski</li>
                 <li>Arquitectura alpina de primer nivel</li>
-                <li>Vida familiar plena</li>
-                <li>Experiencias memorables cada temporada</li>
+                <li>Administración de rentas disponible</li>
+                <li>Financiamiento directo</li>
+                <li>Comunidad exclusiva y segura</li>
             </ul>
         </div>
     </section>
@@ -177,7 +188,7 @@
     <!-- Privilegios de Membresía -->
     <section class="actividades-servicios">
         <div class="container">
-            <h2 class="actividades-servicios-title">PRIVILEGIOS DE MEMBRESÍA</h2>
+            <h2 class="actividades-servicios-title">BENEFICIOS PARA PROPIETARIOS</h2>
             <span class="actividades-servicios-line"></span>
 
             <div class="servicios-grid">
@@ -251,23 +262,6 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Tu Lugar en la Montaña te Espera</h2>
-                <p class="cta-text">
-                    Únete a una comunidad selecta que ha elegido vivir y disfrutar en el entorno de montaña
-                    más distinguido de México.
-                </p>
-                <a href="mailto:memomartinez@monterreal.com?subject=Información%20sobre%20Membresía%20Club%20Monterreal&body=Hola,%0D%0A%0D%0AEstoy%20interesado%20en%20formar%20parte%20del%20Club%20Monterreal%20y%20me%20gustaría%20obtener%20más%20información%20sobre:%0D%0A%0D%0A-%20Membresías%20disponibles%0D%0A-%20Beneficios%20exclusivos%0D%0A-%20Costos%20y%20planes%20de%20pago%0D%0A-%20Oportunidades%20inmobiliarias%0D%0A%0D%0AQuedo%20atento%20a%20su%20respuesta%20para%20conocer%20más%20detalles.%0D%0A%0D%0ASaludos"
-                   class="btn btn-primary btn-large">
-                    Solicitar información
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer Simple -->
     <footer class="footer-simple">
         <div class="container">
@@ -276,7 +270,7 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://api.whatsapp.com/send?phone=5218118239301&text=Hola,%20me%20gustaría%20información%20sobre%20el%20Club%20Monterreal"
+    <a href="https://api.whatsapp.com/send?phone=5218118239301&text=Hola,%20me%20gustaría%20información%20sobre%20venta%20de%20lotes%20y%20cabañas"
        class="whatsapp-button"
        target="_blank"
        rel="noopener"

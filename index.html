@@ -12,7 +12,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!-- Critical CSS: Mobile menu pre-load to prevent FOUC -->
     <style>
@@ -45,6 +45,9 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌲</text></svg>">
 </head>
 <body>
+    <!-- Site Alert Container (controlado desde Google Sheets) -->
+    <div id="siteAlertContainer"></div>
+
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
         <div class="navbar-container">
@@ -60,9 +63,9 @@
                 <li><a href="index.html" class="active">Inicio</a></li>
                 <li><a href="mapa.html">Mapa</a></li>
                 <li><a href="cabanas.html">Cabañas</a></li>
-                <!-- <li><a href="actividades.html">Actividades</a></li> -->
                 <li><a href="https://www.spaalpino.com/" target="_blank" rel="noopener">Spa</a></li>
                 <li><a href="club.html">Club Monterreal</a></li>
+                <li><a href="galeria.html">Galería</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
 
@@ -178,7 +181,7 @@
                 <li>Juegos infantiles</li>
                 <li>Rappel y tirolesa</li>
                 <li>Cabalgatas y cuatrimotos</li>
-                <li>Restaurante gourmet</li>
+                <li>Restaurante</li>
                 <li>Centro de negocios</li>
                 <li>Salas de reuniones</li>
                 <li>Capilla</li>
@@ -197,12 +200,25 @@
                 <div class="servicio-item">
                     <div class="servicio-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                            <path d="M12 2C8 2 4 6 4 10c0 6 8 12 8 12s8-6 8-12c0-4-4-8-8-8z"/>
-                            <circle cx="12" cy="10" r="2"/>
+                            <path d="M5 20l7-16 7 16"/>
+                            <path d="M8 14h9"/>
+                            <circle cx="18" cy="6" r="2"/>
                         </svg>
                     </div>
-                    <h3>Caminatas</h3>
-                    <p>Senderos rodeados de bosques de pino y encino para explorar la sierra.</p>
+                    <h3>Ski</h3>
+                    <p>Disfruta la nieve en nuestras pistas durante la temporada invernal.</p>
+                </div>
+
+                <div class="servicio-item">
+                    <div class="servicio-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                            <path d="M4 16h16l-2 4H6l-2-4z"/>
+                            <path d="M6 16l2-6h8l2 6"/>
+                            <path d="M9 10V8a3 3 0 016 0v2"/>
+                        </svg>
+                    </div>
+                    <h3>Trineos</h3>
+                    <p>Diversión en la nieve para toda la familia con trineos y tubos.</p>
                 </div>
 
                 <div class="servicio-item">
@@ -300,7 +316,7 @@
         <div class="container">
             <div class="restaurante-wrapper">
                 <div class="restaurante-image">
-                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Restaurante" loading="lazy">
+                    <img src="images/restaurante2.jpeg" alt="Casa Club Monterreal" loading="lazy" style="max-height: 400px; width: 100%; object-fit: cover;">
                 </div>
                 <div class="restaurante-content">
                     <span class="badge">Gastronomía</span>

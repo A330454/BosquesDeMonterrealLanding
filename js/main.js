@@ -9,7 +9,147 @@ document.addEventListener('DOMContentLoaded', function() {
     RevealOnScroll.init();
     MobileMenu.init();
     DatePicker.init();
+    SiteAlert.init();
 });
+
+/**
+ * Site Alert Module
+ * Lee alertas desde Google Sheets para mostrar avisos del complejo
+ * El cliente solo necesita editar una hoja de cálculo para activar/desactivar
+ */
+const SiteAlert = {
+    // URL de Google Sheets publicado como CSV
+    // INSTRUCCIONES PARA CONFIGURAR:
+    // 1. Crear hoja de cálculo en Google Sheets
+    // 2. Columna A1: "SI" o "NO" (activo)
+    // 3. Columna B1: El mensaje de la alerta
+    // 4. Columna C1: Tipo - "info", "warning" o "danger" (opcional, default: warning)
+    // 5. Archivo > Compartir > Publicar en la web > CSV
+    // 6. Copiar la URL y pegarla aquí
+    sheetUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT2hXDYA7JkCAsJ_ZqXDRC2pKPhOzQwbRKQDflE_NFIkQlQCy06S78V5RmFSZEuP0Fzl9tQtogUeGWk/pub?gid=0&single=true&output=csv',
+
+    container: null,
+
+    init() {
+        this.container = document.getElementById('siteAlertContainer');
+        if (!this.container || !this.sheetUrl) return;
+
+        this.fetchAlert();
+    },
+
+    async fetchAlert() {
+        try {
+            // Usar proxy CORS para evitar errores cuando se abre desde file://
+            const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(this.sheetUrl);
+            const response = await fetch(proxyUrl);
+            const csvText = await response.text();
+            const data = this.parseCSV(csvText);
+
+            // Saltar la primera fila (encabezados) y filtrar solo las filas activas
+            const activeAlerts = [];
+            const dataRows = data.slice(1); // Ignorar fila de encabezados
+            for (const row of dataRows) {
+                const [activo, mensaje, tipo] = row;
+
+                // Solo agregar si está activo (SI, si, Sí, sí, 1, true)
+                const isActive = ['si', 'sí', '1', 'true', 'yes'].includes(
+                    (activo || '').toString().toLowerCase().trim()
+                );
+
+                if (isActive && mensaje && mensaje.trim()) {
+                    activeAlerts.push({
+                        mensaje: mensaje.trim(),
+                        tipo: (tipo || 'warning').toLowerCase().trim()
+                    });
+                }
+            }
+
+            if (activeAlerts.length > 0) {
+                this.showAlerts(activeAlerts);
+            }
+        } catch (error) {
+            console.warn('No se pudo cargar la alerta:', error);
+        }
+    },
+
+    parseCSV(csvText) {
+        // Parser simple para CSV de una línea
+        const lines = csvText.split('\n').filter(line => line.trim());
+        return lines.map(line => {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+
+            for (let char of line) {
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current);
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current);
+            return result;
+        });
+    },
+
+    showAlerts(alerts) {
+        // Generar HTML para múltiples alertas
+        let html = '';
+        for (const alert of alerts) {
+            html += `
+                <div class="site-alert site-alert--${alert.tipo}">
+                    <div class="site-alert__content">
+                        <span class="site-alert__icon">${this.getIcon(alert.tipo)}</span>
+                        <span class="site-alert__message">${alert.mensaje}</span>
+                        <button class="site-alert__close" aria-label="Cerrar alerta">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        this.container.innerHTML = html;
+        this.container.style.display = 'block';
+
+        // Ajustar padding del body para compensar la altura de las alertas
+        this.updateBodyPadding();
+
+        // Cerrar alertas individuales
+        this.container.querySelectorAll('.site-alert__close').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const alertEl = e.target.closest('.site-alert');
+                alertEl.remove();
+                this.updateBodyPadding();
+            });
+        });
+    },
+
+    updateBodyPadding() {
+        const remainingAlerts = this.container.querySelectorAll('.site-alert');
+        if (remainingAlerts.length === 0) {
+            this.container.style.display = 'none';
+            document.body.style.paddingTop = '0';
+        } else {
+            document.body.style.paddingTop = this.container.offsetHeight + 'px';
+        }
+    },
+
+    getIcon(type) {
+        const icons = {
+            info: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>',
+            warning: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
+            danger: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>'
+        };
+        return icons[type] || icons.warning;
+    }
+};
 
 /**
  * Date Picker Module
@@ -99,6 +239,20 @@ const DatePicker = {
             }
         });
 
+        // Close on scroll (desktop only)
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth >= 768 && this.dropdown.classList.contains('active')) {
+                this.closeDropdown();
+            }
+        });
+
+        // Close button for mobile
+        const closeBtn = document.getElementById('calendarClose');
+        closeBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.closeDropdown();
+        });
+
         // Render initial calendar
         this.renderCalendars();
     },
@@ -112,6 +266,12 @@ const DatePicker = {
     },
 
     openDropdown() {
+        // Position dropdown below the input on desktop
+        if (window.innerWidth >= 768) {
+            const rect = this.trigger.getBoundingClientRect();
+            this.dropdown.style.top = `${rect.bottom + 8}px`;
+            this.dropdown.style.left = `${rect.left + (rect.width / 2) - 290}px`;
+        }
         this.dropdown.classList.add('active');
     },
 
@@ -328,12 +488,9 @@ const DatePicker = {
 
     updateSelectionText() {
         if (!this.checkInDate) {
-            this.selectionText.textContent = 'Selecciona tu check-in';
+            this.selectionText.textContent = 'Selecciona tu día de check-in';
         } else if (!this.checkOutDate) {
-            const date = this.parseDateStr(this.checkInDate);
-            const options = { weekday: 'short', month: 'short', day: 'numeric' };
-            const formatted = date.toLocaleDateString('es-MX', options);
-            this.selectionText.textContent = `Tu selección: ${formatted} - ...`;
+            this.selectionText.textContent = 'Selecciona el día de tu check-out';
         } else {
             const checkIn = this.parseDateStr(this.checkInDate);
             const checkOut = this.parseDateStr(this.checkOutDate);
@@ -759,7 +916,7 @@ const FormValidation = {
                         <circle cx="12" cy="12" r="10"></circle>
                         <polyline points="9 12 12 15 16 10"></polyline>
                     </svg>
-                    <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 0.5rem;">¡Mensaje Enviado!</h3>
+                    <h3 style="font-family: 'Cormorant Garamond', Georgia, serif; margin-bottom: 0.5rem;">¡Mensaje Enviado!</h3>
                     <p style="color: #666;">Nos pondremos en contacto contigo pronto.</p>
                 </div>
             `;
